@@ -1,0 +1,168 @@
+
+/* Page Container */
+.service-detail {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  padding: 40px;
+  background: linear-gradient(135deg, #0f0f0e, #182025, #1b1719);
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
+}
+
+/* Service Card */
+.service-card {
+  flex: 1;
+  max-width: 500px;
+  padding: 25px;
+  background: #f3ebeb;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-card h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #1e293b;
+  margin-bottom: 15px;
+}
+
+.service-card img {
+  width: 100%;
+  max-width: 350px;
+  height: auto;
+  border-radius: 14px;
+  margin: 15px 0;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.service-card p {
+  font-size: 16px;
+  color: #475569;
+  line-height: 1.6;
+}
+
+/* Inquiry Form */
+.inquiry-form {
+  flex: 1;
+  max-width: 450px;
+  padding: 30px;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+}
+
+.inquiry-form h3 {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Inputs & Textarea */
+.inquiry-form input,
+.inquiry-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border: none;
+  border-radius: 12px;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  transition: 0.3s;
+}
+
+.inquiry-form input:focus,
+.inquiry-form textarea:focus {
+  box-shadow: 0 0 12px rgba(255,255,255,0.7);
+  transform: scale(1.02);
+}
+
+.inquiry-form textarea {
+  resize: none;
+  min-height: 100px;
+}
+
+/* Submit Button */
+.inquiry-form button {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #fff;
+  transition: 0.3s ease;
+}
+
+.inquiry-form button:hover {
+  background: linear-gradient(135deg, #ef4444, #f59e0b);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .service-detail {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card,
+  .inquiry-form {
+    max-width: 100%;
+  }
+}
+.btn {
+  display: block;
+  width: 100%;
+  padding: 12px;
+  margin: 0.5rem 0;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.btn-cart {
+  background: #3498db;
+  color: white;
+}
+
+.btn-cart:hover {
+  background: #2980b9;
+}
+
+.btn-buy {
+  background: #e67e22;
+  color: white;
+}
+
+.btn-buy:hover {
+  background: #d35400;
+}
+
+.btn-primary {
+  background: #2ecc71;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #27ae60;
+}

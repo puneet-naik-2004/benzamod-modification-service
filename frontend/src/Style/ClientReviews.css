@@ -1,0 +1,136 @@
+  /* Main Reviews Section */
+.reviews {
+  text-align: center;
+  padding: 80px 20px;
+  background: linear-gradient(135deg, #0c0a0a, #080505); /* dark gradient */
+  border-radius: 20px;
+  margin: 50px auto;
+  max-width: 1000px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.7);
+  color: #f1f1f1;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Decorative gradient glow behind */
+.reviews::before {
+  content: "";
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  top: -100px;
+  right: -100px;
+  background: radial-gradient(circle, rgba(255,77,77,0.6), transparent 70%);
+  filter: blur(100px);
+  z-index: 0;
+}
+
+.reviews h2 {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 50px;
+  color: #e78931; /* gold heading */
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  position: relative;
+  z-index: 2;
+}
+
+/* Animated underline */
+.reviews h2::after {
+  content: "";
+  display: block;
+  width: 0;
+  height: 4px;
+  background: #ff4d4d;
+  margin: 12px auto 0;
+  border-radius: 2px;
+  animation: underlineGrow 1.2s ease forwards;
+}
+
+@keyframes underlineGrow {
+  from {
+    width: 0;
+  }
+  to {
+    width: 120px;
+  }
+}
+
+/* Scrollable reviews container */
+.reviews-scroll {
+  max-height: 350px;
+  overflow-y: auto;
+  padding-right: 10px;
+  z-index: 2;
+  position: relative;
+}
+
+/* Custom scrollbar */
+.reviews-scroll::-webkit-scrollbar {
+  width: 8px;
+}
+.reviews-scroll::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #ff4d4d, #ffd700);
+  border-radius: 6px;
+}
+.reviews-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+/* Review Cards */
+.reviews-card {
+  background: rgba(243, 231, 231, 0.08); /* frosted glass effect */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 25px 30px;
+  margin: 20px auto;
+  max-width: 600px;
+  text-align: left;
+  transition: all 0.4s ease-in-out;
+  box-shadow: 0 4px 25px rgba(255, 77, 77, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.reviews-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 10px 35px rgba(255, 215, 0, 0.5);
+}
+
+/* Review text */
+.reviews-card p {
+  font-size: 1.15rem;
+  color: #e4e4e4;
+  line-height: 1.7;
+  font-style: italic;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.reviews-card p::before {
+  content: "“";
+  font-size: 3rem;
+  color: #ff4d4d;
+  position: absolute;
+  left: -15px;
+  top: -20px;
+  opacity: 0.6;
+}
+
+.reviews-card h4 {
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffd700;
+  text-align: right;
+  margin-top: 15px;
+}
+
+/* Star rating display */
+.stars {
+  color: #ffd700;
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}

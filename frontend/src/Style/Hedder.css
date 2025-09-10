@@ -1,0 +1,175 @@
+/* Navbar container */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #111; /* dark background */
+  padding: 12px 30px;
+  color: #fff;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+/* ✅ Logo container with image + text */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.logo-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.logo {
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #ff9800;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.logo:hover {
+  color: #ffd54f;
+}
+
+/* ✅ Nav Menu (center) */
+.nav-menu {
+  display: flex;
+  gap: 22px;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-menu li {
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 600;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+.nav-menu li:hover {
+  color: #ff9800;
+}
+
+/* Underline highlight */
+.nav-menu li hr {
+  border: none;
+  height: 2px;
+  background: #ff9800;
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 100%;
+  border-radius: 3px;
+}
+
+/* ✅ Right side: Login/Admin/Logout/Cart */
+.nav-login-cart {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.welcome-text {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: #fff;
+}
+
+/* Buttons (login/admin/logout) */
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border: none;
+  padding: 8px 16px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Login */
+.login-btn {
+  background: linear-gradient(45deg, #ff9800, #ffc107);
+  color: #111;
+  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
+}
+.login-btn:hover {
+  background: linear-gradient(45deg, #ffb74d, #ff9800);
+  transform: translateY(-2px);
+}
+
+/* Admin */
+.admin-btn {
+  background: linear-gradient(45deg, #00c6ff, #0072ff);
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.4);
+}
+.admin-btn:hover {
+  background: linear-gradient(45deg, #3399ff, #0059b3);
+  transform: translateY(-2px);
+}
+
+/* Logout */
+.logout-btn {
+  background: linear-gradient(45deg, #ff1744, #d50000);
+  color: white;
+  box-shadow: 0 4px 12px rgba(213, 0, 0, 0.4);
+}
+.logout-btn:hover {
+  background: linear-gradient(45deg, #ff5252, #b71c1c);
+  transform: translateY(-2px);
+}
+
+/* Cart bubble */
+.nav-cart-count {
+  background: #ff9800;
+  color: #111;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 50%;
+  text-align: center;
+}
+
+/* ✅ Hamburger Menu (Mobile) */
+.hamburger {
+  display: none;
+  cursor: pointer;
+  color: #fff;
+}
+
+/* ✅ Responsive */
+@media (max-width: 768px) {
+  .nav-menu {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 65px;
+    right: 0;
+    background: #111;
+    width: 220px;
+    padding: 20px;
+    border-radius: 8px 0 0 8px;
+    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.5);
+  }
+
+  .nav-menu.open {
+    display: flex;
+  }
+
+  .hamburger {
+    display: block;
+  }
+}

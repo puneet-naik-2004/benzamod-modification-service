@@ -1,0 +1,65 @@
+
+
+/* Full Dashboard Layout */
+.admin-dashboard {
+  display: flex;
+  min-height: 100vh;
+  background-color: #1e1e2f; /* Dark background */
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 250px;
+  background: #111827;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar .logo {
+  font-size: 1.5rem;
+  margin-bottom: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: #4ade80; /* Green highlight */
+}
+
+.sidebar ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  padding: 12px 15px;
+  margin: 5px 0;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.sidebar ul li:hover {
+  background: #2563eb; /* Blue hover */
+  color: #fff;
+  transform: translateX(5px);
+}
+
+/* Main Content */
+.dashboard-content {
+  flex: 1;
+  padding: 30px;
+  background: #1f2937;
+  border-left: 2px solid #374151;
+}
+
+.dashboard-content h2 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #4ade80; /* Green heading */
+}
+
+.dashboard-content p {
+  font-size: 1.1rem;
+  color: #d1d5db;
+}
