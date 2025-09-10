@@ -1,146 +1,65 @@
-/* Navbar container */
+/* ================================
+   🌟 Global Fonts
+================================= */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Orbitron:wght@500;700&display=swap');
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+}
+
+/* ================================
+   🌟 Navbar
+================================= */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #111; /* dark background */
-  padding: 12px 30px;
+  background: #0d0d0d;
+  padding: 12px 24px;
   color: #fff;
   position: sticky;
   top: 0;
   z-index: 1000;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  animation: slideDown 0.6s ease;
 }
 
-/* ✅ Logo container with image + text */
+/* ✅ Logo Section */
 .logo-container {
   display: flex;
   align-items: center;
-  gap: 10px;
-  cursor: pointer;
+  gap: 8px;
+  animation: fadeIn 1s ease forwards;
 }
 
 .logo-img {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   border-radius: 50%;
+  object-fit: cover;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+  transform: scale(1.1) rotate(5deg);
 }
 
 .logo {
-  font-size: 1.6rem;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
   font-weight: 700;
-  color: #ff9800;
-  letter-spacing: 1px;
-  transition: color 0.3s ease;
+  letter-spacing: 3px;
+  color: #ff4747;
+  opacity: 0;
+  animation: fadeInRight 1s ease 0.3s forwards;
 }
 
 .logo:hover {
-  color: #ffd54f;
-}
-
-/* ✅ Nav Menu (center) */
-.nav-menu {
-  display: flex;
-  gap: 22px;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-}
-
-.nav-menu li {
-  cursor: pointer;
-  font-size: 1.3rem;
-  font-weight: 600;
-  position: relative;
-  transition: color 0.3s ease;
-}
-
-.nav-menu li:hover {
-  color: #ff9800;
-}
-
-/* Underline highlight */
-.nav-menu li hr {
-  border: none;
-  height: 2px;
-  background: #ff9800;
-  position: absolute;
-  bottom: -6px;
-  left: 0;
-  width: 100%;
-  border-radius: 3px;
-}
-
-/* ✅ Right side: Login/Admin/Logout/Cart */
-.nav-login-cart {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.welcome-text {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: #fff;
-}
-
-/* Buttons (login/admin/logout) */
-.btn {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  border: none;
-  padding: 8px 16px;
-  font-size: 0.95rem;
-  font-weight: 600;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-/* Login */
-.login-btn {
-  background: linear-gradient(45deg, #ff9800, #ffc107);
-  color: #111;
-  box-shadow: 0 4px 12px rgba(255, 152, 0, 0.4);
-}
-.login-btn:hover {
-  background: linear-gradient(45deg, #ffb74d, #ff9800);
-  transform: translateY(-2px);
-}
-
-/* Admin */
-.admin-btn {
-  background: linear-gradient(45deg, #00c6ff, #0072ff);
-  color: white;
-  box-shadow: 0 4px 12px rgba(0, 114, 255, 0.4);
-}
-.admin-btn:hover {
-  background: linear-gradient(45deg, #3399ff, #0059b3);
-  transform: translateY(-2px);
-}
-
-/* Logout */
-.logout-btn {
-  background: linear-gradient(45deg, #ff1744, #d50000);
-  color: white;
-  box-shadow: 0 4px 12px rgba(213, 0, 0, 0.4);
-}
-.logout-btn:hover {
-  background: linear-gradient(45deg, #ff5252, #b71c1c);
-  transform: translateY(-2px);
-}
-
-/* Cart bubble */
-.nav-cart-count {
-  background: #ff9800;
-  color: #111;
-  font-size: 0.8rem;
-  font-weight: bold;
-  padding: 4px 8px;
-  border-radius: 50%;
-  text-align: center;
+  transform: scale(1.1) rotate(-3deg);
+  color: #ffffff;
 }
 
 /* ✅ Hamburger Menu (Mobile) */
@@ -148,28 +67,179 @@
   display: none;
   cursor: pointer;
   color: #fff;
+  transition: transform 0.3s ease;
 }
 
-/* ✅ Responsive */
+.hamburger:hover {
+  transform: rotate(90deg);
+}
+
+/* ✅ Nav Menu */
+.nav-menu {
+  display: flex;
+  gap: 28px;
+  list-style: none;
+  transition: all 0.3s ease;
+}
+
+.nav-menu li {
+  position: relative;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: 600;
+  transition: color 0.3s ease, transform 0.3s ease, font-size 0.3s ease;
+}
+
+/* Animated underline */
+.nav-menu li::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: #ff4747;
+  transition: width 0.3s ease;
+  border-radius: 2px;
+}
+
+.nav-menu li:hover {
+  color: #8aff47;
+  font-size: 18px;
+  transform: translateY(-2px);
+  letter-spacing: 1px;
+}
+
+.nav-menu li:hover::after {
+  width: 100%;
+}
+
+/* ✅ Right Side Buttons */
+.nav-login-cart {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  opacity: 0;
+  animation: fadeInLeft 1s ease 0.8s forwards;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  border: none;
+  transition: all 0.3s ease, transform 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+.login-btn {
+  background: #ff4747;
+  color: white;
+}
+
+.login-btn:hover {
+  background: #e63c3c;
+  box-shadow: 0 4px 12px rgba(255, 71, 71, 0.5);
+}
+
+.admin-btn {
+  background: #333;
+  color: #fff;
+}
+
+.admin-btn:hover {
+  background: #444;
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+}
+
+.logout-btn {
+  background: #222;
+  color: #ff4747;
+  border: 1px solid #ff4747;
+}
+
+.logout-btn:hover {
+  background: #ff4747;
+  color: white;
+  box-shadow: 0 4px 12px rgba(255, 71, 71, 0.5);
+}
+
+/* ✅ Welcome text */
+.welcome-text {
+  font-size: 14px;
+  font-weight: 500;
+  margin-right: 10px;
+  color: #ddd;
+}
+
+/* ================================
+   📱 Responsive Styles
+================================= */
 @media (max-width: 768px) {
-  .nav-menu {
-    display: none;
-    flex-direction: column;
-    position: absolute;
-    top: 65px;
-    right: 0;
-    background: #111;
-    width: 220px;
-    padding: 20px;
-    border-radius: 8px 0 0 8px;
-    box-shadow: -2px 0 8px rgba(0, 0, 0, 0.5);
-  }
-
-  .nav-menu.open {
-    display: flex;
-  }
-
   .hamburger {
     display: block;
   }
+
+  .nav-menu {
+    position: absolute;
+    top: 65px;
+    left: 0;
+    right: 0;
+    background: #111;
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(-20px);
+    transition: all 0.4s ease;
+  }
+
+  .nav-menu.open {
+    max-height: 400px;
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInDown 0.5s ease forwards;
+  }
+
+  .nav-login-cart {
+    gap: 8px;
+  }
+}
+
+/* ================================
+   ✨ Animations
+================================= */
+@keyframes slideDown {
+  from { transform: translateY(-100%); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translateX(-20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(20px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
 }

@@ -55,7 +55,7 @@ body {
   text-align: center;
   margin: 40px auto;
   padding: 20px;
-  max-width: 800px;
+  max-width: 1000px;
   background-color: black;
 }
 
@@ -82,7 +82,7 @@ body {
   border: none;
   border-radius: 16px;
   padding: 15px;
-  width: 180px;
+  width: 240px;
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0px 4px 10px rgba(0,0,0,0.15);
@@ -96,13 +96,28 @@ body {
 }
 
 /* 🔹 Image styling */
-.quick-nav .nav-icon {
+/* .quick-nav .nav-icon {
   width: 100%;
   height: 120px;
   object-fit: cover;
   border-radius: 12px;
   margin-bottom: 10px;
+} */
+
+.quick-nav .nav-icon {
+  width: 100%;
+  height: 200px;  /* ⬆️ increased from 120px */
+  object-fit: cover;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  transition: transform 0.3s ease;
 }
+
+.quick-nav .nav-btn:hover .nav-icon {
+  transform: scale(1.08); /* ⬆️ image zoom effect on hover */
+}
+
+
 
 /* 🔹 Button text */
 .quick-nav .nav-btn span {

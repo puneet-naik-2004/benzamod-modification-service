@@ -3,11 +3,11 @@
 /* ============================== */
 
 .services-container {
-  background: #07090a; /* Light clean background */
+  background: #07090a; /* Dark background */
   min-height: 100vh;
   padding: 3rem 2rem;
   font-family: "Poppins", sans-serif;
-  color: #222;
+  color: #fff;
 }
 
 /* Page Title */
@@ -33,7 +33,7 @@
 }
 
 /* ========================= */
-/* Service Form */
+/* Service Form (Centered & Equal Width) */
 /* ========================= */
 .service-form {
   background: #221d1d;
@@ -43,6 +43,7 @@
   margin: 0 auto 3rem;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
   animation: fadeIn 0.7s ease-in-out;
+  text-align: center;
 }
 
 .service-form h3 {
@@ -52,23 +53,51 @@
   color: #f78d37;
 }
 
+/* ✅ Inputs & fields same width */
 .service-form input,
 .service-form select,
 .service-form textarea {
-  width: 100%;
-  margin: 0.6rem 0;
-  padding: 0.9rem;
+  width: 90%;
+  max-width: 450px;
+  margin: 12px auto;
+  padding: 12px;
   border: 1.5px solid #ccc;
   border-radius: 8px;
   font-size: 1rem;
   transition: 0.3s;
+  display: block;
+  background: #1c1c1c;
+  color: #fff;
 }
+/* Make select same width as inputs */
+/* .service-form select {
+  width: 90%;     
+  max-width: 450px; 
+  margin: 12px auto;       
+  padding: 12px;          
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  display: block;
+  box-sizing: border-box;  
+  background-color: #1c1c1c;
+  color: #fff;
+  appearance: none;        
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  text-align: left;
+}
+
+.service-form select::-ms-expand {
+  display: none;
+} */
 
 .service-form input:focus,
 .service-form select:focus,
 .service-form textarea:focus {
   border-color: #28a745;
   box-shadow: 0 0 6px rgba(40, 167, 69, 0.4);
+  outline: none;
 }
 
 .service-form textarea {
@@ -142,7 +171,8 @@
 .list-name {
   font-size: 1.7rem;
   margin-bottom: 1.3rem;
-  color: #2c3e50;
+  color: #e79c56;
+  text-align: center;
 }
 
 .service-list {

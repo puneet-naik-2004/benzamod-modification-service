@@ -1,6 +1,7 @@
 // controllers/cartController.js
 const Cart = require("../models/cart");
 const Order = require("../models/order");
+const User = require("../models/User");
 
 // POST /api/cart - create new cart item
 exports.createCart = async (req, res) => {
@@ -70,17 +71,52 @@ exports.deleteCart = async (req, res) => {
 exports.buynowcart = async (req, res) => {
   try {
     const cart = await Cart.findById(req.params.id);
-    if (!cart)
+    if (!cart) {
       return res
         .status(404)
         .json({ success: false, message: "Cart item not found" });
-    const { _id, ...newOrder } = cart.toObject();
-    const order = new Order(newOrder);
+    }
+
+    // Get address and customer from request
+    const { address, user } = req.body;
+    if (!address || !user._id) {
+      return res.status(400).json({
+        success: false,
+        message: "Address and customer_id are required",
+      });
+    }
+
+    // Find user
+    const userModel = await User.findById(user._id);
+    if (!userModel) {
+      return res
+        .status(404)
+        .json({ success: false, message: "User not found" });
+    }
+
+    // Save address to user (append to addresses)
+    userModel.addresses.push(address);
+    await userModel.save();
+
+    // Get the last inserted address ID
+    const address_id = userModel.addresses[userModel.addresses.length - 1]._id;
+
+    // Create order with product_id, customer_id, and address_id
+    const order = new Order({
+      product_id: cart.product_id, // or cart.product_id if you store differently
+      customer_id: userModel._id,
+      address_id: address_id,
+      service_id: cart.service_id,
+    });
+
     await order.save();
 
-    const deletedcart = await Cart.findByIdAndDelete(req.params.id);
-    res.json({ success: true, cart: deletedcart });
+    // Delete item from cart
+    const deletedCart = await Cart.findByIdAndDelete(req.params.id);
+
+    res.json({ success: true, order, deletedCart });
   } catch (err) {
+    console.error("Error in buynowcart:", err);
     res.status(500).json({ success: false, error: err.message });
   }
 };

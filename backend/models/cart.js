@@ -7,6 +7,8 @@ const cartSchema = new mongoose.Schema({
   description: { type: String },
   photo: { type: String },
   customer_id: { type: String },
+  product_id: { type: String },
+  service_id: { type: String },
 });
 
 module.exports = mongoose.model("Cart", cartSchema);

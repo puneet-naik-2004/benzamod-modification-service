@@ -1,9 +1,9 @@
-import Orders from 'Components/Orders'
+import { OrdersList } from 'Components/Orders'
 import React from 'react'
 
 const OrderPage = () => {
   return (
-   <Orders/>
+   <OrdersList/>
   )
 }
 

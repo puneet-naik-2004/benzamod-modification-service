@@ -54,10 +54,10 @@ const Hedder = () => {
       {/* ✅ Center: Nav Menu */}
       <ul className={`nav-menu ${mobileOpen ? "open" : ""}`}>
         <li onClick={() => handleNav("/service/Bike", "bikes")}>
-          Bike {menu === "bikes" ? <hr /> : null}
+          Bike
         </li>
         <li onClick={() => handleNav("/service/Car", "cars")}>
-          Car {menu === "cars" ? <hr /> : null}
+          Car 
         </li>
         {/* <li onClick={() => handleNav("/shop", "shop")}>
           Shop {menu === "shop" ? <hr /> : null}
@@ -66,19 +66,19 @@ const Hedder = () => {
           Parts {menu === "parts" ? <hr /> : null}
         </li> */}
         <li onClick={() => handleNav("/portfolio", "portfolio")}>
-          Portfolio {menu === "portfolio" ? <hr /> : null}
+          Portfolio 
         </li>
         {/* <li onClick={() => handleNav("/services", "services")}>
           Services {menu === "services" ? <hr /> : null}
         </li> */}
         <li onClick={() => handleNav("/products", "products")}>
-          Product {menu === "products" ? <hr /> : null}
+          Product 
         </li>
         <li onClick={() => handleNav("/orders", "orders")}>
-          Orders {menu === "orders" ? <hr /> : null}
+          Orders 
         </li>
         <li onClick={() => handleNav("/cart", "cart")}>
-          Cart {menu === "cart" ? <hr /> : null}
+          Cart
         </li>
       </ul>
 

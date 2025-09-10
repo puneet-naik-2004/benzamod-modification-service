@@ -1,12 +1,10 @@
 const mongoose = require("mongoose");
 
 const orderSchema = new mongoose.Schema({
-  title: { type: String, required: true },
-  price: { type: Number, required: true },
-  type: { type: String, required: true },
-  description: { type: String },
-  photo: { type: String },
-  customer_id: { type: String },
-});
+  product_id: { type: mongoose.Schema.Types.ObjectId, ref: "Product" }, // or Product model if you have one
+  service_id: { type: mongoose.Schema.Types.ObjectId, ref: "Service" }, // or Product model if you have one
+  customer_id: { type: mongoose.Schema.Types.ObjectId, ref: "User" },
+  address_id: { type: mongoose.Schema.Types.ObjectId }, // we’ll manually pull from user
+}, { timestamps: true });
 
 module.exports = mongoose.model("Orders", orderSchema);

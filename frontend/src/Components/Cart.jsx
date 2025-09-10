@@ -1,89 +1,8 @@
-// import React, { useEffect, useState } from "react";
-// import { getCart, deleteCart, buynowCart } from "Services/cart";
-// import "../Style/Cart.css";
-// import { useAuth } from "Context/AuthContext";
-
-// function Cart() {
-//   const [cart, setCart] = useState([]);
-//   const { user } = useAuth();
-//   useEffect(() => {
-//     loadCart();
-//   }, []);
-
-//   const loadCart = async () => {
-//     const data = await getCart();
-//     if (!data.error)
-//       setCart(data.cart.filter((each) => each.customer_id === user?._id));
-//   };
-
-//   const handleDelete = async (id) => {
-//     if (window.confirm("Are you sure you want to delete this cart item?")) {
-//       const res = await deleteCart(id);
-//       if (!res.error) {
-//         setCart((prev) => prev.filter((item) => item._id !== id));
-//       } else {
-//         alert("Failed to delete cart item: " + res.error);
-//       }
-//     }
-//   };
-
-//   const handleBuyNow = async (item) => {
-//     alert(`🛒 Buying now: ${item.title} for ₹${item.price}`);
-//     const res = await buynowCart(item._id);
-//     const removedCartItem = res.cart;
-//     const filteredCart = cart.filter(
-//       (each) => each._id !== removedCartItem._id
-//     );
-//     setCart(filteredCart);
-//     // ✅ Later: Redirect to checkout or create order API call
-//   };
-
-//   return (
-//     <div className="cart-container">
-//       <h2>🛒 Customer Cart</h2>
-//       <div className="cart-list">
-//         {cart.map((item) => (
-//           <div key={item._id} className="cart-card">
-//             <img src={item.photo} alt={item.title} />
-//             <div className="cart-info">
-//               <h4>{item.title}</h4>
-//               <p>💰 ₹{item.price}</p>
-//               <p>📂 {item.type}</p>
-//               <p>📝 {item.description}</p>
-//               <p>🕒 {new Date(item.orderDate).toLocaleString()}</p>
-//             </div>
-//             <div className="cart-actions">
-//               {/* ✅ Buy Now Button */}
-//               <button className="buy-btn" onClick={() => handleBuyNow(item)}>
-//                 🛍 Buy Now
-//               </button>
-
-//               {/* ✅ Delete Button */}
-//               <button
-//                 className="delete-btn"
-//                 onClick={() => handleDelete(item._id)}
-//               >
-//                 ❌ Delete
-//               </button>
-//             </div>
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Cart;
-
-
-
-
-
-
 import React, { useEffect, useState } from "react";
 import { getCart, deleteCart, buynowCart } from "Services/cart";
 import "../Style/Cart.css";
 import { useAuth } from "Context/AuthContext";
+import { Link } from "react-router-dom";
 
 function Cart() {
   const [cart, setCart] = useState([]);
@@ -117,10 +36,16 @@ function Cart() {
   };
 
   const handleBuyNow = async (item) => {
-    alert(`🛒 Buying now: ${item.title} (x${item.quantity}) for ₹${item.price * item.quantity}`);
+    alert(
+      `🛒 Buying now: ${item.title} (x${item.quantity}) for ₹${
+        item.price * item.quantity
+      }`
+    );
     const res = await buynowCart(item._id);
     const removedCartItem = res.cart;
-    const filteredCart = cart.filter((each) => each._id !== removedCartItem._id);
+    const filteredCart = cart.filter(
+      (each) => each._id !== removedCartItem._id
+    );
     setCart(filteredCart);
     // ✅ Later: Redirect to checkout or create order API call
   };
@@ -169,9 +94,9 @@ function Cart() {
             </div>
 
             <div className="cart-actions">
-              <button className="buy-btn" onClick={() => handleBuyNow(item)}>
-                🛍 Buy Now
-              </button>
+              <Link to={`/buynow/${item._id}`} className="buy-btn">
+                Buy Now
+              </Link>
               <button
                 className="delete-btn"
                 onClick={() => handleDelete(item._id)}
@@ -194,4 +119,3 @@ function Cart() {
 }
 
 export default Cart;
-

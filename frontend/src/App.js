@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import React, { Suspense, lazy } from "react";
 import { AuthProvider } from "./Context/AuthContext";
+import BuynowPage from "Pages/BuynowPage";
 
 const HomePage = lazy(() => import("./Pages/HomePage"));
 const ServiceList = lazy(() => import("./Pages/ServiceList"));
@@ -57,7 +58,8 @@ function App() {
             <Route path="/products" element={<FeatuerService />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/cart" element={<Cart />} />
-             <Route path="/portfolio" element={<PortfolioList/>} />
+             <Route path="/portfolio" element={<PortfolioList/>} /> 
+             <Route path="/buynow/:id" element={<BuynowPage/>} /> 
             
           </Routes>
         </Suspense>

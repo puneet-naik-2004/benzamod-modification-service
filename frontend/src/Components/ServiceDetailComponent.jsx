@@ -62,7 +62,7 @@ export const ServiceDetailComponent = () => {
     // alert(`${service.title} added to cart!`);
 
     const cartData = {
-      serviceId: service._id,
+      service_id: service._id,
       title: service.title,
       description: service.description,
       photo: service.photo,

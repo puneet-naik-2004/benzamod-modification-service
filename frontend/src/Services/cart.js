@@ -30,10 +30,10 @@ export const deleteCart = (id) => {
   }).then((res) => res.json());
 };
 
-
-
-export const buynowCart = (id) => {
-  return fetch(`${process.env.REACT_APP_API_URL}/cart/buynow/${id}`, {
+export const buynowCart = (data,cartId) => {
+  return fetch(`${process.env.REACT_APP_API_URL}/cart/buynow/${cartId}`, {
     method: "Post",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
   }).then((res) => res.json());
 };

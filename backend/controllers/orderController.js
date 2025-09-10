@@ -12,10 +12,15 @@ exports.createOrder = async (req, res) => {
   }
 };
 
-// GET /api/orders - get all orders
 exports.getOrders = async (req, res) => {
   try {
-    const orders = await Order.find().sort({ createdAt: -1 });
+    const orders = await Order.find()
+      .sort({ createdAt: -1 })
+      .populate("customer_id", "name email addresses") // only return name & email
+      .populate("product_id", "title price type photo") // product fields
+      .populate("service_id", "title price type photo") // product fields
+      .populate("address_id"); // full address (if stored as subdoc with ref)
+
     res.json({ success: true, orders });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
