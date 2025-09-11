@@ -10,7 +10,7 @@
 
 /* Title */
 .services-title {
-  font-size: 35px;
+  font-size: 40px;
   font-weight: bold;
   color: #ee4141;
   margin-bottom: 30px;
@@ -59,9 +59,9 @@
 }
 
 .service-info h3 {
-  font-size: 18px;
+  font-size: 25px;
   font-weight: 600;
-  color: #444;
+  color: #0c0a0a;
   transition: color 0.3s ease;
 }
 

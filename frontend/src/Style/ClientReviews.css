@@ -2,7 +2,7 @@
 .reviews {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(135deg, #0c0a0a, #080505); /* dark gradient */
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) ); /* dark gradient */
   border-radius: 20px;
   margin: 50px auto;
   max-width: 1000px;

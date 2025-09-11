@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { buynowCart } from "Services/cart";
+import "../Style/Buynow.css";
 
 export const BuynowComponent = () => {
   const [address, setAddress] = useState({

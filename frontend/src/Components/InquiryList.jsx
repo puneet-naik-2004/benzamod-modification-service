@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { getUser, deleteUser, deleteInquiry, getInquiry } from "Services/inquiry";
-// import "../Style/UserList.css"
-export function InquiryList() {
+import {  deleteInquiry, getInquiry } from "Services/inquiry";
+ import "../Style/InquiryList.css"
+ function InquiryList() {
   const [inquiry, setInquiry] = useState([]);
 
   // Load registered users
@@ -34,7 +34,7 @@ export function InquiryList() {
               <div className="inquiry-info">
                 <h4>👤 {inquiry.name}</h4>
                 <p>📧 {inquiry.email}</p>
-                <p>📞 {inquiry.message }</p>
+                <p> {inquiry.message }</p>
              
               </div>
               <div className="inquiry-actions">
@@ -51,12 +51,12 @@ Message: ${inquiry.phone }
                 >
                   👁 View
                 </button>
-                <button
+                {/* <button
                   className="btn-delete"
                   onClick={() => handleDelete(inquiry._id)}
                 >
                   {/* ❌ Delete */}
-                </button>
+                {/* </button> */} 
               </div>
             </div>
           ))
@@ -67,3 +67,4 @@ Message: ${inquiry.phone }
     </div>
   );
 }
+export default InquiryList

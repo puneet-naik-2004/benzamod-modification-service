@@ -9,7 +9,8 @@ const portfolioSchema = new mongoose.Schema(
     price: { type: String, required: true }, // After work image (URL / Path)
     reviews: [
       {
-        user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // Linked to user who reviewed
+        // user: { type: mongoose.Schema.Types.ObjectId, ref: "User" }, // Linked to user who reviewed
+        name: { type: String, required: true },
         comment: { type: String, required: true },
         rating: { type: Number, min: 1, max: 5, required: true }, // ⭐ 1–5 rating
         createdAt: { type: Date, default: Date.now },

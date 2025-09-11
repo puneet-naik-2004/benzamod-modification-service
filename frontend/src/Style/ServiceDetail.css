@@ -16,9 +16,9 @@
   flex: 1;
   max-width: 500px;
   padding: 25px;
-  background: #f3ebeb;
+  background: #2a292b;
   border-radius: 18px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+  box-shadow: 0 8px 20px rgba(243, 70, 70, 0.12);
   text-align: center;
   transition: transform 0.3s ease;
 }
@@ -30,7 +30,7 @@
 .service-card h2 {
   font-size: 26px;
   font-weight: 700;
-  color: #1e293b;
+  color: #7f848a;
   margin-bottom: 15px;
 }
 
@@ -44,23 +44,23 @@
 }
 
 .service-card p {
-  font-size: 16px;
-  color: #475569;
+  font-size: 20px;
+  color: #737883;
   line-height: 1.6;
 }
 
 /* Inquiry Form */
-.inquiry-form {
+ .inquiry-form {
   flex: 1;
   max-width: 450px;
   padding: 30px;
   background: linear-gradient(135deg, #3b82f6, #9333ea);
   border-radius: 20px;
   box-shadow: 0 10px 25px rgba(0,0,0,0.18);
-  color: #fff;
+  color: #f5ecec;
   display: flex;
   flex-direction: column;
-}
+} 
 
 .inquiry-form h3 {
   font-size: 22px;
@@ -172,7 +172,7 @@
 
 .inquiry-form {
   flex: 1;
-  background: #fdfdfd;
+  background: #2f2a3a;
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -183,7 +183,7 @@
 
 .inquiry-form h3 {
   margin-bottom: 1.5rem;
-  color: #444;
+  color: #f0e6e6;
   font-size: 1.5rem;
   text-align: center;
 }

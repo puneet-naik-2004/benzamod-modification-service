@@ -1,29 +1,65 @@
-
-
-/* Full Dashboard Layout */
+/* ===============================
+   Admin Dashboard Layout
+================================= */
 .admin-dashboard {
   display: flex;
-  min-height: 100vh;
-  background-color: #1e1e2f; /* Dark background */
-  color: #fff;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  flex-direction: column;
+  height: 100vh;
 }
 
-/* Sidebar */
-.sidebar {
-  width: 250px;
-  background: #111827;
-  padding: 20px;
+/* 🔹 Navbar */
+.admin-navbar {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  background: #1e293b;
+  color: #fff;
+  padding: 10px 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+}
+
+.navbar-title {
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.menu-btn {
+  background: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* 🔹 Layout */
+.dashboard-layout {
+  display: flex;
+  flex: 1;
+  position: relative;
+}
+
+/* 🔹 Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px; /* hidden initially */
+  width: 240px;
+  height: 100%;
+  background: #0f172a;
+  color: #fff;
+  padding: 20px;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.2);
+  transition: left 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.sidebar.open {
+  left: 0; /* slides in */
 }
 
 .sidebar .logo {
-  font-size: 1.5rem;
-  margin-bottom: 30px;
+  font-size: 22px;
+  margin-bottom: 20px;
   font-weight: bold;
-  text-align: center;
-  color: #4ade80; /* Green highlight */
 }
 
 .sidebar ul {
@@ -32,34 +68,54 @@
 }
 
 .sidebar ul li {
-  padding: 12px 15px;
-  margin: 5px 0;
-  border-radius: 8px;
+  padding: 12px 10px;
   cursor: pointer;
-  transition: all 0.3s;
+  border-radius: 8px;
+  transition: background 0.2s;
 }
 
 .sidebar ul li:hover {
-  background: #2563eb; /* Blue hover */
-  color: #fff;
-  transform: translateX(5px);
+  background: rgba(255, 255, 255, 0.1);
 }
 
-/* Main Content */
+/* 🔹 Main Content */
 .dashboard-content {
   flex: 1;
   padding: 30px;
-  background: #1f2937;
-  border-left: 2px solid #374151;
+  background: #484e53;
+  min-height: calc(100vh - 50px); /* account for navbar */
+  margin-left: 0;
+  transition: margin-left 0.3s ease-in-out;
+  z-index: 1;
 }
 
-.dashboard-content h2 {
-  font-size: 2rem;
-  margin-bottom: 20px;
-  color: #4ade80; /* Green heading */
+/* Desktop: push content when sidebar is open */
+@media (min-width: 769px) {
+  .admin-dashboard.sidebar-open .dashboard-content {
+    margin-left: 240px;
+  }
 }
 
-.dashboard-content p {
-  font-size: 1.1rem;
-  color: #d1d5db;
+/* Mobile: overlay style */
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70%;
+    max-width: 280px;
+  }
+
+  .dashboard-content {
+    margin-left: 0 !important;
+  }
+
+  /* Overlay background when sidebar open */
+  .admin-dashboard.sidebar-open::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    z-index: 500;
+  }
 }

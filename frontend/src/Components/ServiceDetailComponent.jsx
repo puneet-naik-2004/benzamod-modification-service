@@ -125,9 +125,9 @@ export const ServiceDetailComponent = () => {
           🛒 Add to Cart
         </button>
 
-        <button className="btn btn-buy" onClick={handleBuyNow}>
+        {/* <button className="btn btn-buy" onClick={handleBuyNow}>
           ⚡ BUY NOW
-        </button>
+        </button> */}
       </div>
 
       {/* Right: Inquiry Form */}
