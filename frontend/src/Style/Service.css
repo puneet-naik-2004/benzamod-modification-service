@@ -69,28 +69,7 @@
   background: #1c1c1c;
   color: #fff;
 }
-/* Make select same width as inputs */
-/* .service-form select {
-  width: 90%;     
-  max-width: 450px; 
-  margin: 12px auto;       
-  padding: 12px;          
-  border: 1.5px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  display: block;
-  box-sizing: border-box;  
-  background-color: #1c1c1c;
-  color: #fff;
-  appearance: none;        
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  text-align: left;
-}
 
-.service-form select::-ms-expand {
-  display: none;
-} */
 
 .service-form input:focus,
 .service-form select:focus,

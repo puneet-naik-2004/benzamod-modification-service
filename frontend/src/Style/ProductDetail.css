@@ -93,44 +93,7 @@
   background: #27ae60;
 }
 
-/* --- Inquiry Form --- */
-/* .inquiry-form {
-  flex: 1;
-  background: #fdfdfd;
-  padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-}
 
-.inquiry-form h3 {
-  margin-bottom: 1rem;
-  color: #444;
-  font-size: 1.4rem;
-  text-align: center;
-}
-
-.inquiry-form input,
-.inquiry-form textarea {
-  width: 100%;
-  padding: 12px;
-  margin: 0.6rem 0;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  font-size: 1rem;
-  outline: none;
-  transition: 0.3s;
-}
-
-.inquiry-form input:focus,
-.inquiry-form textarea:focus {
-  border-color: #3498db;
-  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
-}
-
-.inquiry-form textarea {
-  resize: none;
-  height: 120px;
-} */
 
 
 
