@@ -252,7 +252,7 @@ export const ProductDetailComponent = () => {
     }
 
     const cartData = {
-      productId: product._id,
+      product_id: product._id,
       title: product.title,
       price: product.price,
       type: product.type,

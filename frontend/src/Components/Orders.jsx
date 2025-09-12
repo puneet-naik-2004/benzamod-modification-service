@@ -58,10 +58,6 @@
 
 // // export default Orders;
 
-
-
-
-
 // import { Package, IndianRupee, Car } from "lucide-react";
 
 // export const OrdersList = () => {
@@ -148,11 +144,6 @@
 //   );
 // };
 
-
-
-
-
-
 import React, { useEffect, useState } from "react";
 import { getOrders, deleteOrder } from "Services/order";
 import "../Style/Orders.css";
@@ -195,49 +186,90 @@ export const OrdersList = () => {
         <p className="no-orders">No orders found.</p>
       ) : (
         <div className="orders-grid">
-          {orders.map((order) => (
-            <div key={order._id} className="order-card">
-              {/* Service Image */}
-              <img
-                src={order.service_id?.photo}
-                alt={order.service_id?.title}
-              />
+          {orders.map(
+            (order) =>
+              order.service_id ? (
+                <div key={order._id} className="order-card">
+                  {/* Service Image */}
+                  <img
+                    src={order.service_id?.photo}
+                    alt={order.service_id?.title}
+                  />
 
-              {/* Title */}
-              <h2>
-                <Package size={18} /> {order.service_id?.title}
-              </h2>
+                  {/* Title */}
+                  <h2>
+                    <Package size={18} /> {order.service_id?.title}
+                  </h2>
 
-              {/* Type */}
-              <p className="type">
-                <Car size={16} /> {order.service_id?.type}
-              </p>
+                  {/* Type */}
+                  <p className="type">
+                    <Car size={16} /> {order.service_id?.type}
+                  </p>
 
-              {/* Price */}
-              <p className="price">
-                <IndianRupee size={18} /> {order.service_id?.price}
-              </p>
+                  {/* Price */}
+                  <p className="price">
+                    <IndianRupee size={18} /> {order.service_id?.price}
+                  </p>
 
-              {/* Order ID */}
-              <p className="order-id">Order ID: {order._id}</p>
+                  {/* Order ID */}
+                  <p className="order-id">Order ID: {order._id}</p>
 
-              {/* Buttons */}
-              <div className="buttons">
-                <button className="view-btn">
-                  <Eye size={16} /> View
-                </button>
-                <button
-                  className="cancel-btn"
-                  onClick={() => handleDelete(order._id)}
-                >
-                  <XCircle size={16} /> Cancel
-                </button>
-              </div>
-            </div>
-          ))}
+                  {/* Buttons */}
+                  <div className="buttons">
+                    <button className="view-btn">
+                      <Eye size={16} /> View
+                    </button>
+                    <button
+                      className="cancel-btn"
+                      onClick={() => handleDelete(order._id)}
+                    >
+                      <XCircle size={16} /> Cancel
+                    </button>
+                  </div>
+                </div>
+              ): (
+                <div key={order._id} className="order-card">
+                  {/* Service Image */}
+                  <img
+                    src={order.product_id?.photo}
+                    alt={order.product_id?.title}
+                  />
+
+                  {/* Title */}
+                  <h2>
+                    <Package size={18} /> {order.product_id?.title}
+                  </h2>
+
+                  {/* Type */}
+                  <p className="type">
+                    <Car size={16} /> {order.product_id?.type}
+                  </p>
+
+                  {/* Price */}
+                  <p className="price">
+                    <IndianRupee size={18} /> {order.product_id?.price}
+                  </p>
+
+                  {/* Order ID */}
+                  <p className="order-id">Order ID: {order._id}</p>
+
+                  {/* Buttons */}
+                  <div className="buttons">
+                    <button className="view-btn">
+                      <Eye size={16} /> View
+                    </button>
+                    <button
+                      className="cancel-btn"
+                      onClick={() => handleDelete(order._id)}
+                    >
+                      <XCircle size={16} /> Cancel
+                    </button>
+                  </div>
+                </div>
+              )
+          )}
         </div>
       )}
     </div>
   );
 };
-

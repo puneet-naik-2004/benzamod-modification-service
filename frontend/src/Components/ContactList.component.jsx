@@ -1,9 +1,10 @@
 import { useEffect, useState } from "react";
 import { getContact, deleteContact } from "Services/contact";
-import "../Style/Contact.css"; // ✅ Import CSS
+import "../Style/ContactList.css"; // ✅ Import CSS
 
 export function ContactListComponent() {
   const [contacts, setContacts] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
 
   // 🔹 Load contacts on mount
   useEffect(() => {
@@ -24,7 +25,7 @@ export function ContactListComponent() {
 
     try {
       await deleteContact(id);
-      setContacts(contacts.filter((c) => c._id !== id));
+      setContacts((prev) => prev.filter((c) => c._id !== id));
       alert("✅ Contact deleted successfully!");
     } catch (err) {
       console.error("Error deleting contact:", err);
@@ -32,49 +33,76 @@ export function ContactListComponent() {
     }
   };
 
+  // 🔹 Filter contacts by search term
+  const filteredContacts = contacts.filter((contact) => {
+    const term = searchTerm.toLowerCase();
+    return (
+      contact.name.toLowerCase().includes(term) ||
+      contact.email.toLowerCase().includes(term) ||
+      (contact.phone && contact.phone.toLowerCase().includes(term)) ||
+      (contact.message && contact.message.toLowerCase().includes(term))
+    );
+  });
+
   return (
     <div className="contact-page">
       <h2 className="page-title">📋 Contact Messages</h2>
 
-      <ul className="contact-grid">
-        {contacts.length > 0 ? (
-          contacts.map((contact) => (
-            <li key={contact._id} className="contact-card">
-              <div className="contact-info">
-                <p><strong>👤 Name:</strong> {contact.name}</p>
-                <p><strong>📧 Email:</strong> {contact.email}</p>
-                <p><strong>📞 Phone:</strong> {contact.phone || "N/A"}</p>
-                <p><strong>💬 Message:</strong> {contact.message}</p>
-              </div>
+      {/* 🔍 Search Bar */}
+      <input
+        type="text"
+        placeholder="Search by name, email, phone, or message..."
+        className="search-bar"
+        value={searchTerm}
+        onChange={(e) => setSearchTerm(e.target.value)}
+      />
 
-              <div className="contact-actions">
-                <button
-                  className="btn btn-view"
-                  onClick={() =>
-                    alert(`
+      {filteredContacts.length > 0 ? (
+        <table className="contact-table">
+          <thead>
+            <tr>
+              <th>👤 Name</th>
+              <th>📧 Email</th>
+              <th>📞 Phone</th>
+              <th>💬 Message</th>
+              <th>⚡ Actions</th>
+            </tr>
+          </thead>
+          <tbody>
+            {filteredContacts.map((contact) => (
+              <tr key={contact._id}>
+                <td>{contact.name}</td>
+                <td>{contact.email}</td>
+                <td>{contact.phone || "N/A"}</td>
+                <td>{contact.message}</td>
+                <td className="actions">
+                  <button
+                    className="btn btn-view"
+                    onClick={() =>
+                      alert(`
 Name: ${contact.name}
 Email: ${contact.email}
 Phone: ${contact.phone || "N/A"}
 Message: ${contact.message}
-                    `)
-                  }
-                >
-                  👁 View
-                </button>
-
-                <button
-                  className="btn btn-delete"
-                  onClick={() => handleDelete(contact._id)}
-                >
-                  ❌ Delete
-                </button>
-              </div>
-            </li>
-          ))
-        ) : (
-          <p className="no-results">No contacts found.</p>
-        )}
-      </ul>
+                      `)
+                    }
+                  >
+                    👁 View
+                  </button>
+                  <button
+                    className="btn btn-delete"
+                    onClick={() => handleDelete(contact._id)}
+                  >
+                    ❌ Delete
+                  </button>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      ) : (
+        <p className="no-results">No contacts found.</p>
+      )}
     </div>
   );
 }

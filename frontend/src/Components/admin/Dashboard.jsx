@@ -1,11 +1,26 @@
+
+
+
+
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import "../../Style/AdminDashboard.css";
 
+// Import your components
+import Products from "../../Pages/ProductPage";   // Example: Product management component
+import Services from "../Service";   // Example: Service management component
+import {ContactListComponent} from "../ContactList.component";
+import Portfolio from "../Portfolio";
+import {OrdersList} from "../Orders";
+import {UserListComponent} from "../UserListComponent";
+import InquiryList from "../InquiryList";
+// import Admins from "../admin";       // Admin list component
+
 export const Dashboard = () => {
   const navigate = useNavigate();
-  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(true);
+  const [activeTab, setActiveTab] = useState("products"); // default tab
 
   useEffect(() => {
     const isAdmin = localStorage.getItem("role") === "admin";
@@ -16,37 +31,102 @@ export const Dashboard = () => {
 
   const toggleSidebar = () => setIsSidebarOpen((prev) => !prev);
 
+  // Render main content based on active tab
+  const renderContent = () => {
+    switch (activeTab) {
+      case "products":
+        return <Products />;
+      case "services":
+        return <Services />;
+      case "contacts":
+        return <ContactListComponent />;
+      case "portfolio":
+        return <Portfolio />;
+      case "orders":
+        return <OrdersList />;
+      case "users":
+        return <UserListComponent />;
+      case "inquiries":
+        return <InquiryList />;
+      // case "admins":
+      //   return <Admins />;
+      default:
+        return <h2>Select an option from the sidebar</h2>;
+    }
+  };
+
   return (
-    <div className={`admin-dashboard ${isSidebarOpen ? "sidebar-open" : ""}`}>
+    <div className="admin-dashboard">
       {/* 🔹 Navbar */}
       <header className="admin-navbar">
         <button className="menu-btn" onClick={toggleSidebar}>
-          {isSidebarOpen ? <X size={28} /> : <Menu size={28} />}
+          {isSidebarOpen ? <X size={26} /> : <Menu size={26} />}
         </button>
         <h1 className="navbar-title">Admin Dashboard</h1>
       </header>
 
       <div className="dashboard-layout">
         {/* 🔹 Sidebar */}
-        <aside className={`sidebar ${isSidebarOpen ? "open" : ""}`}>
+        <aside className={`sidebar ${isSidebarOpen ? "open" : "closed"}`}>
           <h2 className="logo">⚡ Admin Panel</h2>
           <ul>
-            <li onClick={() => navigate("/admin/products")}>📦 Products</li>
-            <li onClick={() => navigate("/admin/services")}>🛠 Services</li>
-            <li onClick={() => navigate("/admin/contactlist")}>📩 Contact</li>
-            <li onClick={() => navigate("/admin/orders")}>🛒 Orders</li>
-            <li onClick={() => navigate("/admin/portfolio")}>🎨 Portfolio</li>
-            <li onClick={() => navigate("/admin/userlist")}>👥 User List</li>
-            <li onClick={() => navigate("/admin/inquiry")}>❓ Inquiries</li>
+            <li
+              className={activeTab === "products" ? "active" : ""}
+              onClick={() => setActiveTab("products")}
+            >
+              📦 Products
+            </li>
+            <li
+              className={activeTab === "services" ? "active" : ""}
+              onClick={() => setActiveTab("services")}
+            >
+              🛠 Services
+            </li>
+            <li
+              className={activeTab === "contacts" ? "active" : ""}
+              onClick={() => setActiveTab("contacts")}
+            >
+              📩 Contacts
+            </li>
+            <li
+              className={activeTab === "orders" ? "active" : ""}
+              onClick={() => setActiveTab("orders")}
+            >
+              🛒 Orders
+            </li>
+            <li
+              className={activeTab === "portfolio" ? "active" : ""}
+              onClick={() => setActiveTab("portfolio")}
+            >
+              🎨 Portfolio
+            </li>
+            <li
+              className={activeTab === "users" ? "active" : ""}
+              onClick={() => setActiveTab("users")}
+            >
+              👥 Users
+            </li>
+            <li
+              className={activeTab === "inquiries" ? "active" : ""}
+              onClick={() => setActiveTab("inquiries")}
+            >
+              ❓ Inquiries
+            </li>
+            {/* <li
+              className={activeTab === "admins" ? "active" : ""}
+              onClick={() => setActiveTab("admins")}
+            >
+              🔑 Admins
+            </li> */}
           </ul>
         </aside>
 
         {/* 🔹 Main Content */}
-        <main className="dashboard-content" onClick={() => isSidebarOpen && toggleSidebar()}>
-          <h2>Welcome, Admin 👋</h2>
-          <p>Select an option from the sidebar to manage content.</p>
-        </main>
+        <main className="dashboard-content">{renderContent()}</main>
       </div>
     </div>
   );
 };
+
+
+
