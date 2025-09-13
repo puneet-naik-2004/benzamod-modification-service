@@ -8,6 +8,7 @@ import Contact from "Components/Contact";
 import Footer from "Components/Footer";
 import Review from "Components/Review";
 import {InquiryList} from "Components/InquiryList";
+import Dashboard from "./AdminDashboard";
 
 
 
@@ -24,6 +25,7 @@ function HomePage() {
       <Review/>
       <Footer />
       {/* <InquiryList/> */}
+    
     
     </>
   );
