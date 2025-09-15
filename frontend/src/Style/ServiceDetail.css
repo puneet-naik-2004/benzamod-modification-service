@@ -1,59 +1,133 @@
 
-.service-detail-container {
+/* Page Container */
+.service-detail {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: flex-start;
-  gap: 2rem;
-  padding: 2rem;
-  max-width: 1200px;
-  margin: auto;
-  background-color: black;
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  gap: 40px;
+  padding: 40px;
+  background: linear-gradient(135deg, #0f0f0e, #182025, #1b1719);
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
 }
 
-/* --- service Card --- */
-.service-info-card {
+/* Service Card */
+.service-card {
   flex: 1;
-  background: #121741;
-  padding: 1.5rem;
-  border-radius: 16px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-width: 500px;
+  padding: 25px;
+  background: #2a292b;
+  border-radius: 18px;
+  box-shadow: 0 8px 20px rgba(243, 70, 70, 0.12);
   text-align: center;
+  transition: transform 0.3s ease;
 }
 
-.service-info-card h2 {
-  margin-bottom: 1rem;
-  color: #d14b4b;
-  font-size: 1.8rem;
+.service-card:hover {
+  transform: translateY(-5px);
 }
 
-.service-info-card img {
+.service-card h2 {
+  font-size: 26px;
+  font-weight: 700;
+  color: #7f848a;
+  margin-bottom: 15px;
+}
+
+.service-card img {
   width: 100%;
   max-width: 350px;
+  height: auto;
+  border-radius: 14px;
+  margin: 15px 0;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+}
+
+.service-card p {
+  font-size: 20px;
+  color: #737883;
+  line-height: 1.6;
+}
+
+/* Inquiry Form */
+ .inquiry-form {
+  flex: 1;
+  max-width: 450px;
+  padding: 30px;
+  background: linear-gradient(135deg, #3b82f6, #9333ea);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.18);
+  color: #f5ecec;
+  display: flex;
+  flex-direction: column;
+} 
+
+.inquiry-form h3 {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+/* Inputs & Textarea */
+.inquiry-form input,
+.inquiry-form textarea {
+  width: 100%;
+  padding: 14px 16px;
+  margin-bottom: 18px;
+  border: none;
   border-radius: 12px;
-  margin-bottom: 1rem;
+  font-size: 15px;
+  font-family: "Poppins", sans-serif;
+  outline: none;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  transition: 0.3s;
 }
 
-.service-info-card .desc {
-  font-size: 1.2rem;
-  color: #dd6565;
-  margin-bottom: 0.5rem;
+.inquiry-form input:focus,
+.inquiry-form textarea:focus {
+  box-shadow: 0 0 12px rgba(255,255,255,0.7);
+  transform: scale(1.02);
 }
 
-.service-info-card .price {
-  font-size: 1.3rem;
+.inquiry-form textarea {
+  resize: none;
+  min-height: 100px;
+}
+
+/* Submit Button */
+.inquiry-form button {
+  padding: 14px;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
   font-weight: bold;
-  color: #27ae60;
-  margin-bottom: 0.5rem;
+  cursor: pointer;
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: #fff;
+  transition: 0.3s ease;
 }
 
-.service-info-card .type {
-  font-size: 1.2rem;
-  color: #ccb7b7;
-  margin-bottom: 1.5rem;
+.inquiry-form button:hover {
+  background: linear-gradient(135deg, #ef4444, #f59e0b);
+  transform: scale(1.05);
+  box-shadow: 0px 6px 15px rgba(0,0,0,0.25);
 }
 
-/* Buttons */
+/* Responsive */
+@media (max-width: 900px) {
+  .service-detail {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .service-card,
+  .inquiry-form {
+    max-width: 100%;
+  }
+}
 .btn {
   display: block;
   width: 100%;
@@ -96,12 +170,9 @@
 
 
 
-
-
-/* --- Inquiry Form (Centered Fields) --- */
 .inquiry-form {
   flex: 1;
-  background: #504577;
+  background: #2f2a3a;
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
@@ -112,7 +183,7 @@
 
 .inquiry-form h3 {
   margin-bottom: 1.5rem;
-  color: #050505;
+  color: #f0e6e6;
   font-size: 1.5rem;
   text-align: center;
 }
@@ -165,17 +236,4 @@
 
 .inquiry-form button:hover {
   background: #2980b9;
-}
-
-
-/* --- Responsive (Mobile) --- */
-@media (max-width: 768px) {
-  .service-detail-container {
-    flex-direction: column;
-  }
-
-  .service-info-card,
-  .inquiry-form {
-    width: 100%;
-  }
 }

@@ -104,11 +104,11 @@ import Footer from "./Components/Footer"; // ✅ Import Footer
 
 // Lazy-loaded pages
 const HomePage = lazy(() => import("./Pages/HomePage"));
-const ServiceList = lazy(() => import("./Pages/ProductList"));
+const ServiceList = lazy(() => import("./Pages/ServiceList"));
 const ServiceDetail = lazy(() => import("./Pages/ServiceDetail"));
 const LoginPage = lazy(() => import("./Pages/LoginPage"));
 const RegisterPage = lazy(() => import("./Pages/RegisterPage"));
-const ProductsList = lazy(() => import("./Pages/ServiceList"));
+const ProductsList = lazy(() => import("./Pages/ProductList"));
 const ProductDetail = lazy(() => import("./Pages/ProductDetail"));
 const AdminDashboard = lazy(() => import("./Pages/AdminDashboard"));
 const Product = lazy(() => import("./Pages/ProductPage"));
@@ -125,6 +125,7 @@ const PortfolioList = lazy(() => import("./Pages/PortfolioList"));
 const InquiryList = lazy(() => import("./Components/InquiryList"));
 const About = lazy(() => import("./Components/About"));
 const Home = lazy(() => import("./Components/HeroBanner"));
+const Category = lazy(() => import("./Components/Category"));
 
 function AppContent() {
   const location = useLocation();
@@ -147,11 +148,11 @@ function AppContent() {
           {/* Normal Website Routes */}
           <Route path="/" element={<HomePage />} />
           <Route path="/service/:type" element={<ServiceList />} />
-          <Route path="/service/:type/:id" element={<ServiceDetail />} />
+          <Route path="/service/:type/:name" element={<ServiceDetail />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/product/:type" element={<ProductsList />} />
-          <Route path="/product/:type/:name" element={<ProductDetail />} />
+          <Route path="/product/:type/:id" element={<ProductDetail />} />
           <Route path="/pages" element={<HomePage />} />
 
           {/* Admin Routes */}
@@ -164,6 +165,8 @@ function AppContent() {
           <Route path="/admin/portfolio" element={<Portfolio />} />
           <Route path="/admin/userlist" element={<UserList />} />
           <Route path="/admin/inquiry" element={<InquiryList />} />
+           <Route path="/admin/Categories" element={<Category />} />
+
 
           {/* Other Routes */}
           <Route path="/checkout" element={<Orders />} />

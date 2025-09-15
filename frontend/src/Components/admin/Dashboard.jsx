@@ -8,13 +8,14 @@ import { Menu, X } from "lucide-react";
 import "../../Style/AdminDashboard.css";
 
 // Import your components
-import Products from   "../Product";   // Example: Product management component
-import Services from  "../../Pages/ServicePage";  // Example: Service management component
+import Products from "../../Pages/ProductPage";   // Example: Product management component
+import Services from "../Service";   // Example: Service management component
 import {ContactListComponent} from "../ContactList.component";
 import Portfolio from "../Portfolio";
 import {OrdersList} from "../Orders";
 import {UserListComponent} from "../UserListComponent";
 import InquiryList from "../InquiryList";
+import Categories from "../Category";
 // import Admins from "../admin";       // Admin list component
 
 export const Dashboard = () => {
@@ -48,8 +49,8 @@ export const Dashboard = () => {
         return <UserListComponent />;
       case "inquiries":
         return <InquiryList />;
-      // case "admins":
-      //   return <Admins />;
+      case "categories":
+        return <Categories />;
       default:
         return <h2>Select an option from the sidebar</h2>;
     }
@@ -112,6 +113,19 @@ export const Dashboard = () => {
             >
               ❓ Inquiries
             </li>
+
+
+             
+            <li
+              className={activeTab === "categories" ? "active" : ""}
+              onClick={() => setActiveTab("categories")}
+            >
+              🛠 Category
+            </li>
+
+
+
+
             {/* <li
               className={activeTab === "admins" ? "active" : ""}
               onClick={() => setActiveTab("admins")}

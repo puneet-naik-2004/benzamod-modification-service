@@ -1,484 +1,19 @@
-// import React, { useState, useEffect } from "react";
-// import { useParams, useNavigate } from "react-router-dom";
-// import "../Style/ProductDetail.css";
-// import { Helmet } from "react-helmet-async";
-
-// import { getProducts } from "Services/product";
-// import { createOrder } from "Services/order";
-// import { useAuth } from "Context/AuthContext";
-// import { createCart } from "Services/cart";
-
-// export const ProductDetailComponent = () => {
-//   const { id: product_id,type } = useParams();
-//   const [product, setProduct] = useState(null);
-//   const [cart, setCart] = useState([]);
-//   const navigate = useNavigate();
-//   const { user } = useAuth();
-
-//   // Inquiry form states
-//   const [name, setName] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [description, setDescription] = useState("");
-
-//   useEffect(() => {
-//     getProducts().then((fetchedProducts) => {
-//       if (!fetchedProducts.error) {
-//         setProduct(fetchedProducts.find((data) => data._id === product_id));
-//       }
-//     });
-//   }, [product_id]);
-
-//   if (!product) return <h2>Loading product...</h2>;
-
-//   // --- CART ---
-//   const handleAddToCart = () => {
-//     if (!user) {
-//       navigate("/login", { state: { from: `/product/${type}/${product_id}` } });
-//       return;
-//     }
-
-//     const cartData = {
-//       productId: product._id,
-//       title: product.title,
-//       price: product.price,
-//       type: product.type,
-//       description: product.description,
-//       photo: product.photo,
-//       customer_id: user._id,
-//       orderDate: new Date().toISOString(),
-//     };
-
-//     createCart(cartData)
-//       .then((res) => {
-//         if (!res.error) {
-//           alert("✅ Added to cart successfully!");
-//         } else {
-//           alert("❌ Failed to add to cart");
-//         }
-//       })
-//       .catch(() => alert("⚠️ Server error"));
-//   };
-
-//   // --- BUY NOW ---
-//   const handleBuyNow = () => {
-//     if (!user) {
-//       navigate("/login", { state: { from: `/product/${product_id}` } });
-//       return;
-//     }
-
-//     const orderData = {
-//       product_id: product._id,
-//       title: product.title,
-//       price: product.price,
-//       type: product.type,
-//       description: product.description,
-//       photo: product.photo,
-//       customer_id: user._id,
-//       orderDate: new Date().toISOString(),
-//     };
-
-//     createOrder(orderData)
-//       .then((res) => {
-//         if (!res.error) {
-//           alert("✅ Order placed successfully!");
-//         } else {
-//           alert("❌ Failed to place order");
-//         }
-//       })
-//       .catch(() => alert("⚠️ Server error"));
-//   };
-
-//   // ✅ SEO Structured Data
-//   const structuredData = {
-//     "@context": "https://schema.org/",
-//     "@type": "Product",
-//     name: product?.title,
-//     image: [product?.photo],
-//     description: product?.description,
-//     sku: product?._id,
-//     brand: {
-//       "@type": "Brand",
-//       name: "SHOPPER",
-//     },
-//     offers: {
-//       "@type": "Offer",
-//       url: window.location.href,
-//       priceCurrency: "USD",
-//       price: product?.price,
-//       availability: "https://schema.org/InStock",
-//     },
-//     aggregateRating: {
-//       "@type": "AggregateRating",
-//       ratingValue: "4.5", // You can replace this with real data later
-//       reviewCount: "24",
-//     },
-//   };
-
-//   return (
-//     <div className="product-detail-container">
-//       {/* 🔎 SEO Helmet */}
-//       <Helmet>
-//         <title>
-//           {product?.title
-//             ? `${product.title} | SHOPPER`
-//             : "Product Detail | SHOPPER"}
-//         </title>
-//         <meta
-//           name="description"
-//           content={
-//             product?.description?.slice(0, 160) ||
-//             "Check out this amazing product on SHOPPER"
-//           }
-//         />
-//         <meta
-//           name="keywords"
-//           content={`${product?.title}, ${product?.type}, buy online`}
-//         />
-
-//         {/* OpenGraph */}
-//         <meta property="og:title" content={product?.title || "Product"} />
-//         <meta
-//           property="og:description"
-//           content={product?.description || "Shop the best products at SHOPPER"}
-//         />
-//         <meta
-//           property="og:image"
-//           content={product?.photo || "/default-product.jpg"}
-//         />
-//         <meta property="og:type" content="product" />
-//         <meta property="og:url" content={window.location.href} />
-
-//         {/* Twitter Card */}
-//         <meta name="twitter:card" content="summary_large_image" />
-
-//         {/* Canonical */}
-//         <link rel="canonical" href={window.location.href} />
-
-//         {/* Structured Data */}
-//         <script type="application/ld+json">
-//           {JSON.stringify(structuredData)}
-//         </script>
-//       </Helmet>
-
-//       {/* Left Side - Product Info */}
-//       <div className="product-info-card">
-//         <h2>{product?.title}</h2>
-//         <img src={product?.photo} alt={product?.title} />
-//         <p className="desc">{product?.description}</p>
-//         <p className="price">💰 ${product?.price}</p>
-//         <p className="type">Category: {product?.type}</p>
-
-//         <button className="btn btn-cart" onClick={handleAddToCart}>
-//           🛒 Add to Cart
-//         </button>
-
-//         <button className="btn btn-buy" onClick={handleBuyNow}>
-//           ⚡ BUY NOW
-//         </button>
-//       </div>
-
-//       {/* Right Side - Inquiry Form */}
-//       <form onSubmit={(e) => e.preventDefault()} className="inquiry-form">
-//         <h3>Inquiry Form</h3>
-//         <input
-//           type="text"
-//           placeholder="Your Name"
-//           value={name}
-//           onChange={(e) => setName(e.target.value)}
-//         />
-//         <input
-//           type="email"
-//           placeholder="Your Email"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//           required
-//         />
-//         <textarea
-//           placeholder="Your Message"
-//           value={description}
-//           onChange={(e) => setDescription(e.target.value)}
-//           required
-//         ></textarea>
-//         <button type="submit" className="btn btn-primary">
-//           Submit Inquiry
-//         </button>
-//       </form>
-//     </div>
-//   );
-// };
-
-
-
-
-
-
-// import React, { useState, useEffect } from "react";
-// import { useParams, useNavigate } from "react-router-dom";
-// import "../Style/ProductDetail.css";
-// import { Helmet } from "react-helmet-async";
-
-// import { getProducts } from "Services/product";
-// import { createOrder } from "Services/order";
-// import { useAuth } from "Context/AuthContext";
-// import { createCart } from "Services/cart";
-// import { createInquiry } from "Services/inquiry"; // ⬅️ NEW service (you create this like others)
-
-// export const ProductDetailComponent = () => {
-//   const { id: product_id, type } = useParams();
-//   const [product, setProduct] = useState(null);
-//   const navigate = useNavigate();
-//   const { user } = useAuth();
-
-//   // Inquiry form states
-//   const [name, setName] = useState("");
-//   const [email, setEmail] = useState("");
-//   const [description, setDescription] = useState("");
-
-//   useEffect(() => {
-//     getProducts().then((fetchedProducts) => {
-//       if (!fetchedProducts.error) {
-//         setProduct(fetchedProducts.find((data) => data._id === product_id));
-//       }
-//     });
-//   }, [product_id]);
-
-//   if (!product) return <h2>Loading product...</h2>;
-
-//   // --- CART ---
-//   const handleAddToCart = () => {
-//     if (!user) {
-//       navigate("/login", { state: { from: `/product/${type}/${product_id}` } });
-//       return;
-//     }
-
-//     const cartData = {
-//       product_id: product._id,
-//       title: product.title,
-//       price: product.price,
-//       type: product.type,
-//       description: product.description,
-//       photo: product.photo,
-//       customer_id: user._id,
-//       orderDate: new Date().toISOString(),
-//     };
-
-//     createCart(cartData)
-//       .then((res) => {
-//         if (!res.error) {
-//           alert("✅ Added to cart successfully!");
-//         } else {
-//           alert("❌ Failed to add to cart");
-//         }
-//       })
-//       .catch(() => alert("⚠️ Server error"));
-//   };
-
-//   // --- BUY NOW ---
-//   const handleBuyNow = () => {
-//     if (!user) {
-//       navigate("/login", { state: { from: `/product/${product_id}` } });
-//       return;
-//     }
-
-//     const orderData = {
-//       product_id: product._id,
-//       title: product.title,
-//       price: product.price,
-//       type: product.type,
-//       description: product.description,
-//       photo: product.photo,
-//       customer_id: user._id,
-//       orderDate: new Date().toISOString(),
-//     };
-
-//     createOrder(orderData)
-//       .then((res) => {
-//         if (!res.error) {
-//           alert("✅ Order placed successfully!");
-//         } else {
-//           alert("❌ Failed to place order");
-//         }
-//       })
-//       .catch(() => alert("⚠️ Server error"));
-//   };
-
-//   // --- INQUIRY FORM ---
-//   const handleInquirySubmit = (e) => {
-//     e.preventDefault();
-
-//     if (!name || !email || !description) {
-//       alert("⚠️ Please fill all fields");
-//       return;
-//     }
-
-//     const inquiryData = {
-//       name,
-//       email,
-//       description,
-//       productId: product._id,
-//       productTitle: product.title,
-//       date: new Date().toISOString(),
-//     };
-
-//     createInquiry(inquiryData)
-//       .then((res) => {
-//         if (!res.error) {
-//           alert("✅ Inquiry submitted successfully!");
-//           setName("");
-//           setEmail("");
-//           setDescription("");
-//         } else {
-//           alert("❌ Failed to submit inquiry");
-//         }
-//       })
-//       .catch(() => alert("⚠️ Server error"));
-//   };
-
-//   // ✅ SEO Structured Data
-//   const structuredData = {
-//     "@context": "https://schema.org/",
-//     "@type": "Product",
-//     name: product?.title,
-//     image: [product?.photo],
-//     description: product?.description,
-//     sku: product?._id,
-//     brand: {
-//       "@type": "Brand",
-//       name: "SHOPPER",
-//     },
-//     offers: {
-//       "@type": "Offer",
-//       url: window.location.href,
-//       priceCurrency: "USD",
-//       price: product?.price,
-//       availability: "https://schema.org/InStock",
-//     },
-//     aggregateRating: {
-//       "@type": "AggregateRating",
-//       ratingValue: "4.5",
-//       reviewCount: "24",
-//     },
-//   };
-
-//   return (
-//     <div className="product-detail-container">
-//       {/* 🔎 SEO Helmet */}
-//       <Helmet>
-//         <title>
-//           {product?.title
-//             ? `${product.title} | SHOPPER`
-//             : "Product Detail | SHOPPER"}
-//         </title>
-//         <meta
-//           name="description"
-//           content={
-//             product?.description?.slice(0, 160) ||
-//             "Check out this amazing product on SHOPPER"
-//           }
-//         />
-//         <meta
-//           name="keywords"
-//           content={`${product?.title}, ${product?.type}, buy online`}
-//         />
-
-//         {/* OpenGraph */}
-//         <meta property="og:title" content={product?.title || "Product"} />
-//         <meta
-//           property="og:description"
-//           content={product?.description || "Shop the best products at SHOPPER"}
-//         />
-//         <meta
-//           property="og:image"
-//           content={product?.photo || "/default-product.jpg"}
-//         />
-//         <meta property="og:type" content="product" />
-//         <meta property="og:url" content={window.location.href} />
-
-//         {/* Twitter Card */}
-//         <meta name="twitter:card" content="summary_large_image" />
-
-//         {/* Canonical */}
-//         <link rel="canonical" href={window.location.href} />
-
-//         {/* Structured Data */}
-//         <script type="application/ld+json">
-//           {JSON.stringify(structuredData)}
-//         </script>
-//       </Helmet>
-
-//       {/* Left Side - Product Info */}
-//       <div className="product-info-card">
-//         <h2>{product?.title}</h2>
-//         <img src={product?.photo} alt={product?.title} />
-//         <p className="desc">{product?.description}</p>
-//         <p className="price">💰 ${product?.price}</p>
-//         <p className="type">Category: {product?.type}</p>
-
-//         <button className="btn btn-cart" onClick={handleAddToCart}>
-//           🛒 Add to Cart
-//         </button>
-
-//         {/* <button className="btn btn-buy" onClick={handleBuyNow}>
-//           ⚡ BUY NOW
-//         </button> */}
-//       </div>
-
-//       {/* Right Side - Inquiry Form */}
-//       <form onSubmit={handleInquirySubmit} className="inquiry-form">
-//         <h3>Inquiry Form</h3>
-//         <input
-//           type="text"
-//           placeholder="Your Name"
-//           value={name}
-//           onChange={(e) => setName(e.target.value)}
-//         />
-//         <input
-//           type="email"
-//           placeholder="Your Email"
-//           value={email}
-//           onChange={(e) => setEmail(e.target.value)}
-//           required
-//         />
-//         <textarea
-//           placeholder="Your Message"
-//           value={description}
-//           onChange={(e) => setDescription(e.target.value)}
-//           required
-//         ></textarea>
-//         <button type="submit" className="btn btn-primary">
-//           Submit Inquiry
-//         </button>
-//       </form>
-//     </div>
-//   );
-// };
-
-
-
-
-
-
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import "../Style/ServiceDetail.css";
-import { Helmet } from "react-helmet-async";
 
+import { createInquiry } from "Services/inquiry";
 import { getServices } from "Services/service";
-import { createOrder } from "Services/order";
-import { useAuth } from "Context/AuthContext";
+import { createOrder } from "Services/order"; // ✅ order for Buy Now
+import { useAuth } from "Context/AuthContext"; // ✅ auth check
 import { createCart } from "Services/cart";
-import { createInquiry } from "Services/inquiry"; // Inquiry service
 
 export const ServiceDetailComponent = () => {
-  const { id: service_id, type } = useParams();
-  const [service, setService] = useState(null);
+  const { name: service_id,type } = useParams();
+  const [service, setService] = useState({});
+  const [cart, setCart] = useState([]);
   const navigate = useNavigate();
   const { user } = useAuth();
-
-  // Inquiry form states
-  const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
-  const [description, setDescription] = useState("");
 
   useEffect(() => {
     getServices().then((fetchedServices) => {
@@ -488,38 +23,68 @@ export const ServiceDetailComponent = () => {
     });
   }, [service_id]);
 
-  if (!service) return <h2>Loading service...</h2>;
+  // Inquiry form states
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [description, setDescription] = useState("");
 
-  // --- CART ---
+  if (!service) return <h2>Service Not Found</h2>;
+
+  // --- INQUIRY ---
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    if (!name?.trim() || !email?.trim() || !description?.trim()) {
+      alert("Please fill all fields!");
+      return;
+    }
+    const newInquiry = { name, email, description };
+    createInquiry(newInquiry)
+      .then(() => {
+        resetForm();
+        alert("✅ Inquiry submitted successfully!");
+      })
+      .catch((err) => console.error("Error adding inquiry:", err));
+  };
+
+  const resetForm = () => {
+    setName("");
+    setEmail("");
+    setDescription("");
+  };
+
+  // --- CART (frontend only) ---
   const handleAddToCart = () => {
     if (!user) {
       navigate("/login", { state: { from: `/service/${type}/${service_id}` } });
       return;
     }
+    // setCart([...cart, service]);
+    // alert(`${service.title} added to cart!`);
 
     const cartData = {
       service_id: service._id,
       title: service.title,
-      price: service.price,
-      type: service.type,
       description: service.description,
       photo: service.photo,
       customer_id: user._id,
-      orderDate: new Date().toISOString(),
+      addedDate: new Date().toISOString(),
+      type: service.type,
+      price: service.price,
     };
 
     createCart(cartData)
       .then((res) => {
         if (!res.error) {
-          alert("✅ Added to cart successfully!");
+          alert("⚡ Service purchased successfully!");
+          navigate("/cart"); // redirect after buy
         } else {
-          alert("❌ Failed to add to cart");
+          alert("❌ Failed to complete purchase");
         }
       })
       .catch(() => alert("⚠️ Server error"));
   };
 
-  // --- BUY NOW ---
+  // --- BUY NOW (backend order) ---
   const handleBuyNow = () => {
     if (!user) {
       navigate("/login", { state: { from: `/service/${service_id}` } });
@@ -527,138 +92,34 @@ export const ServiceDetailComponent = () => {
     }
 
     const orderData = {
-      service_id: service._id,
+      serviceId: service._id,
       title: service.title,
-      price: service.price,
-      type: service.type,
       description: service.description,
       photo: service.photo,
       customer_id: user._id,
-      orderDate: new Date().toISOString(),
+      type: service.type,
+      price: service.price,
     };
 
     createOrder(orderData)
       .then((res) => {
+        console.log(res);
         if (!res.error) {
-          alert("✅ Order placed successfully!");
+          alert("✅ Service booked successfully!");
         } else {
-          alert("❌ Failed to place order");
+          alert("❌ Failed to book service");
         }
       })
       .catch(() => alert("⚠️ Server error"));
-  };
-
-  // --- INQUIRY FORM ---
-  const handleInquirySubmit = (e) => {
-    e.preventDefault();
-
-    if (!name || !email || !description) {
-      alert("⚠️ Please fill all fields");
-      return;
-    }
-
-    const inquiryData = {
-      name,
-      email,
-      description,
-      serviceId: service._id,
-      serviceTitle: service.title,
-      date: new Date().toISOString(),
-    };
-
-    createInquiry(inquiryData)
-      .then((res) => {
-        if (!res.error) {
-          alert("✅ Inquiry submitted successfully!");
-          setName("");
-          setEmail("");
-          setDescription("");
-        } else {
-          alert("❌ Failed to submit inquiry");
-        }
-      })
-      .catch(() => alert("⚠️ Server error"));
-  };
-
-  // ✅ SEO Structured Data
-  const structuredData = {
-    "@context": "https://schema.org/",
-    "@type": "Service",
-    name: service?.title,
-    image: [service?.photo],
-    description: service?.description,
-    sku: service?._id,
-    provider: {
-      "@type": "Organization",
-      name: "SHOPPER",
-    },
-    offers: {
-      "@type": "Offer",
-      url: window.location.href,
-      priceCurrency: "USD",
-      price: service?.price,
-      availability: "https://schema.org/InStock",
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.5",
-      reviewCount: "24",
-    },
   };
 
   return (
-    <div className="service-detail-container">
-      {/* 🔎 SEO Helmet */}
-      <Helmet>
-        <title>
-          {service?.title
-            ? `${service.title} | SHOPPER`
-            : "Service Detail | SHOPPER"}
-        </title>
-        <meta
-          name="description"
-          content={
-            service?.description?.slice(0, 160) ||
-            "Check out this amazing service on SHOPPER"
-          }
-        />
-        <meta
-          name="keywords"
-          content={`${service?.title}, ${service?.type}, book online`}
-        />
-
-        {/* OpenGraph */}
-        <meta property="og:title" content={service?.title || "Service"} />
-        <meta
-          property="og:description"
-          content={service?.description || "Explore the best services at SHOPPER"}
-        />
-        <meta
-          property="og:image"
-          content={service?.photo || "/default-service.jpg"}
-        />
-        <meta property="og:type" content="service" />
-        <meta property="og:url" content={window.location.href} />
-
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-
-        {/* Canonical */}
-        <link rel="canonical" href={window.location.href} />
-
-        {/* Structured Data */}
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
-      </Helmet>
-
-      {/* Left Side - Service Info */}
-      <div className="service-info-card">
-        <h2>{service?.title}</h2>
-        <img src={service?.photo} alt={service?.title} />
-        <p className="desc">{service?.description}</p>
-        <p className="price">💰 ${service?.price}</p>
-        <p className="type">Category: {service?.type}</p>
+    <div className="service-detail">
+      {/* Left: Service Info */}
+      <div className="service-card">
+        <h2>{service.title}</h2>
+        <img src={service.photo} alt={service.title} />
+        <p>{service.description}</p>
 
         <button className="btn btn-cart" onClick={handleAddToCart}>
           🛒 Add to Cart
@@ -669,15 +130,17 @@ export const ServiceDetailComponent = () => {
         </button> */}
       </div>
 
-      {/* Right Side - Inquiry Form */}
-      <form onSubmit={handleInquirySubmit} className="inquiry-form">
+      {/* Right: Inquiry Form */}
+      <form onSubmit={handleSubmit} className="inquiry-form">
         <h3>Inquiry Form</h3>
+
         <input
           type="text"
           placeholder="Your Name"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+
         <input
           type="email"
           placeholder="Your Email"
@@ -685,15 +148,15 @@ export const ServiceDetailComponent = () => {
           onChange={(e) => setEmail(e.target.value)}
           required
         />
+
         <textarea
           placeholder="Your Message"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           required
         ></textarea>
-        <button type="submit" className="btn btn-primary">
-          Submit Inquiry
-        </button>
+
+        <button type="submit">Submit Inquiry</button>
       </form>
     </div>
   );
