@@ -104,11 +104,11 @@ import Footer from "./Components/Footer"; // ✅ Import Footer
 
 // Lazy-loaded pages
 const HomePage = lazy(() => import("./Pages/HomePage"));
-const ServiceList = lazy(() => import("./Pages/ServiceList"));
+const ServiceList = lazy(() => import("./Pages/ProductList"));
 const ServiceDetail = lazy(() => import("./Pages/ServiceDetail"));
 const LoginPage = lazy(() => import("./Pages/LoginPage"));
 const RegisterPage = lazy(() => import("./Pages/RegisterPage"));
-const ProductsList = lazy(() => import("./Pages/ProductList"));
+const ProductsList = lazy(() => import("./Pages/ServiceList"));
 const ProductDetail = lazy(() => import("./Pages/ProductDetail"));
 const AdminDashboard = lazy(() => import("./Pages/AdminDashboard"));
 const Product = lazy(() => import("./Pages/ProductPage"));
@@ -147,11 +147,11 @@ function AppContent() {
           {/* Normal Website Routes */}
           <Route path="/" element={<HomePage />} />
           <Route path="/service/:type" element={<ServiceList />} />
-          <Route path="/service/:type/:name" element={<ServiceDetail />} />
+          <Route path="/service/:type/:id" element={<ServiceDetail />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/product/:type" element={<ProductsList />} />
-          <Route path="/product/:type/:id" element={<ProductDetail />} />
+          <Route path="/product/:type/:name" element={<ProductDetail />} />
           <Route path="/pages" element={<HomePage />} />
 
           {/* Admin Routes */}

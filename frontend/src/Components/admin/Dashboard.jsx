@@ -8,8 +8,8 @@ import { Menu, X } from "lucide-react";
 import "../../Style/AdminDashboard.css";
 
 // Import your components
-import Products from "../../Pages/ProductPage";   // Example: Product management component
-import Services from "../Service";   // Example: Service management component
+import Products from   "../Product";   // Example: Product management component
+import Services from  "../../Pages/ServicePage";  // Example: Service management component
 import {ContactListComponent} from "../ContactList.component";
 import Portfolio from "../Portfolio";
 import {OrdersList} from "../Orders";

@@ -1,256 +1,208 @@
-/* ============================== */
-/* 🚗 Services Page - Modern CSS  */
-/* ============================== */
-
+/* ==== General Container ==== */
 .services-container {
-  background: #07090a; /* Dark background */
-  min-height: 100vh;
-  padding: 3rem 2rem;
-  font-family: "Poppins", sans-serif;
-  color: #fff;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
-/* Page Title */
 .page-title {
   text-align: center;
-  font-size: 2.3rem;
+  font-size: 28px;
+  margin-bottom: 25px;
   font-weight: bold;
-  margin-bottom: 2.5rem;
-  color: #e79c56;
-  letter-spacing: 1.1px;
-  text-transform: uppercase;
-  position: relative;
+  color: #222;
 }
 
-.page-title::after {
-  content: "";
-  display: block;
-  width: 90px;
-  height: 4px;
-  background: #28a745;
-  margin: 0.7rem auto 0;
-  border-radius: 5px;
-}
-
-/* ========================= */
-/* Service Form (Centered & Equal Width) */
-/* ========================= */
+/* ==== Form Section ==== */
 .service-form {
-  background: #221d1d;
-  padding: 2rem;
-  border-radius: 14px;
-  max-width: 700px;
-  margin: 0 auto 3rem;
-  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
-  animation: fadeIn 0.7s ease-in-out;
-  text-align: center;
+  background: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: all 0.3s ease-in-out;
 }
 
 .service-form h3 {
-  text-align: center;
-  margin-bottom: 1.3rem;
-  font-size: 1.4rem;
-  color: #f78d37;
+  margin-bottom: 10px;
+  font-size: 20px;
+  color: #007bff;
 }
 
-/* ✅ Inputs & fields same width */
 .service-form input,
 .service-form select,
 .service-form textarea {
-  width: 90%;
-  max-width: 450px;
-  margin: 12px auto;
   padding: 12px;
-  border: 1.5px solid #ccc;
   border-radius: 8px;
-  font-size: 1rem;
-  transition: 0.3s;
-  display: block;
-  background: #1c1c1c;
-  color: #fff;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  width: 100%;
+  box-sizing: border-box;
+  transition: border 0.2s;
 }
-
 
 .service-form input:focus,
 .service-form select:focus,
 .service-form textarea:focus {
-  border-color: #28a745;
-  box-shadow: 0 0 6px rgba(40, 167, 69, 0.4);
+  border: 1px solid #007bff;
   outline: none;
 }
 
-.service-form textarea {
-  min-height: 100px;
+textarea {
+  min-height: 80px;
   resize: vertical;
 }
 
-/* Form Buttons */
 .form-buttons {
-  margin-top: 1.2rem;
   display: flex;
-  gap: 1rem;
-  justify-content: center;
+  gap: 10px;
+  justify-content: flex-end;
 }
 
 .btn {
-  padding: 0.8rem 1.2rem;
+  padding: 10px 16px;
   border: none;
-  border-radius: 8px;
-  font-weight: 600;
+  border-radius: 6px;
   cursor: pointer;
-  transition: 0.3s ease;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
 }
 
 .btn-primary {
-  background: #28a745;
-  color: #fff;
+  background: #007bff;
+  color: white;
 }
 
 .btn-primary:hover {
-  background: #218838;
-  transform: translateY(-2px);
+  background: #0056b3;
 }
 
 .btn-cancel {
-  background: #ccc;
-  color: #333;
+  background: #f44336;
+  color: white;
 }
 
 .btn-cancel:hover {
-  background: #999;
-}
-
-/* ========================= */
-/* Search Bar */
-/* ========================= */
-.search-bar {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.search-bar input {
-  width: 60%;
-  max-width: 480px;
-  padding: 0.9rem;
-  border: 2px solid #28a745;
-  border-radius: 25px;
-  font-size: 1rem;
-  transition: 0.3s;
-}
-
-.search-bar input:focus {
-  border-color: #218838;
-  box-shadow: 0 0 8px rgba(40, 167, 69, 0.5);
-  outline: none;
-}
-
-/* ========================= */
-/* Service List */
-/* ========================= */
-.list-name {
-  font-size: 1.7rem;
-  margin-bottom: 1.3rem;
-  color: #e79c56;
-  text-align: center;
-}
-
-.service-list {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 1.8rem;
-}
-
-/* Service Card */
-.service-card {
-  background: #fff;
-  border-radius: 14px;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-
-.service-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.25);
-}
-
-.service-img {
-  width: 100%;
-  height: 200px;
-  object-fit: cover;
-}
-
-.service-info {
-  padding: 1.2rem;
-}
-
-.service-info h4 {
-  font-size: 1.2rem;
-  margin-bottom: 0.4rem;
-  color: #333;
-}
-
-.service-info .price {
-  color: #28a745;
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 0.6rem;
-}
-
-.service-info .type {
-  font-weight: bold;
-  color: #007bff;
-  margin-bottom: 0.4rem;
-}
-
-.service-info .desc {
-  font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 1rem;
-  line-height: 1.4;
-}
-
-/* Card Buttons */
-.card-buttons {
-  display: flex;
-  justify-content: space-between;
-  gap: 0.8rem;
+  background: #d32f2f;
 }
 
 .btn-edit {
-  background: #007bff;
-  color: #fff;
+  background: #ffc107;
+  color: #333;
 }
 
 .btn-edit:hover {
-  background: #0056b3;
+  background: #e0a800;
 }
 
 .btn-delete {
   background: #e74c3c;
-  color: #fff;
+  color: white;
 }
 
 .btn-delete:hover {
   background: #c0392b;
 }
 
-/* No results */
-.no-results {
+/* ==== Search Bar ==== */
+.search-bar {
+  margin: 20px 0;
   text-align: center;
-  font-size: 1.1rem;
-  color: #888;
-  margin-top: 2rem;
 }
 
-/* Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+.search-bar input {
+  width: 60%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.search-bar input:focus {
+  border: 1px solid #007bff;
+  outline: none;
+}
+
+/* ==== Service List ==== */
+.list-name {
+  font-size: 22px;
+  margin: 15px 0;
+  font-weight: 600;
+}
+
+.service-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+/* ==== Service Card ==== */
+.service-card {
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease-in-out;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+}
+
+.service-img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+}
+
+.service-info {
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.service-info h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.price {
+  color: #28a745;
+  font-weight: bold;
+}
+
+.type {
+  font-size: 14px;
+  color:black;
+}
+
+.desc {
+  font-size: 15px;
+  color:black;
+  line-height: 1.4;
+}
+
+.card-buttons {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+/* ==== Empty State ==== */
+.no-results {
+  text-align: center;
+  font-size: 16px;
+  color: #777;
+  margin-top: 20px;
 }

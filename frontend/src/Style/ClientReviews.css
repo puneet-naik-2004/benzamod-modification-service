@@ -2,7 +2,7 @@
 .reviews {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) ); /* dark gradient */
+  background:rgb(155, 151, 151); /* dark gradient */
   border-radius: 20px;
   margin: 50px auto;
   max-width: 1000px;
@@ -29,7 +29,7 @@
   font-size: 2.8rem;
   font-weight: 800;
   margin-bottom: 50px;
-  color: #e78931; /* gold heading */
+  color: #e74606; /* gold heading */
   text-transform: uppercase;
   letter-spacing: 3px;
   position: relative;
@@ -80,7 +80,7 @@
 
 /* Review Cards */
 .reviews-card {
-  background: rgba(243, 231, 231, 0.08); /* frosted glass effect */
+  background:rgb(19, 17, 14); /* frosted glass effect */
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.15);
   border-radius: 16px;
