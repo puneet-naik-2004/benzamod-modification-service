@@ -2,7 +2,7 @@
   max-width: 800px;
   margin: 40px auto;
   padding: 20px;
-  background: #413434;
+  background: #bdb7b7;
   border-radius: 12px;
   box-shadow: 0px 4px 15px rgba(0,0,0,0.1);
   text-align: center;
@@ -16,7 +16,7 @@
 
 .reviews-subtitle {
   font-size: 1rem;
-  color: #ccbebe;
+  color: #0a0707;
   margin-bottom: 25px;
 }
 
