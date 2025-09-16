@@ -3,7 +3,7 @@
   background: #0a0808;
 }
 
-.page-title {
+.page-title h2 {
   text-align: center;
   margin-bottom: 30px;
   font-size: 38px;
@@ -70,7 +70,7 @@
 }
 
 .contact-details {
-  background: #889ce0;
+  background: #18191b;
   padding: 15px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
@@ -103,7 +103,7 @@
   background: #0a0808;
 }
 
-.page-title {
+.page-title h2 {
   text-align: center;
   margin-bottom: 30px;
   font-size: 38px;
@@ -122,7 +122,7 @@
 .contact-form {
   flex: 1;
   min-width: 320px; /* ✅ makes it shrink safely on mobile */
-  background: #2d3050;
+  background: #141516;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);

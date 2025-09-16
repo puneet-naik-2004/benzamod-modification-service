@@ -34,7 +34,7 @@ const QuickNavigation = () => {
       <div className="quick-buttons">
 
         {/* 🚗 Car Button */}
-        <button className="nav-btn" onClick={() => navigate("/service/car")}>
+        <button className="nav-btn" onClick={() => navigate("/product/car")}>
           <img 
             src="https://i1.wp.com/www.stugon.com/wp-content/uploads/2013/12/Exotic-Car-Wallpapers-HD-Edition-stugon.com-10.jpg" 
             alt="Car" 
@@ -44,7 +44,7 @@ const QuickNavigation = () => {
         </button>
 
         {/* 🏍 Bike Button */}
-        <button className="nav-btn" onClick={() => navigate("/service/bike")}>
+        <button className="nav-btn" onClick={() => navigate("/product/bike")}>
           <img 
             src="https://tse1.mm.bing.net/th/id/OIP.bilD5PPjwYa72xbiWhdXUgHaE8?r=0&cb=ucfimgc2&rs=1&pid=ImgDetMain&o=7&rm=3" 
             alt="Bike" 

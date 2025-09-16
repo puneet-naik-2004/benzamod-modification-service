@@ -412,7 +412,7 @@ export const ProductDetailComponent = () => {
         <img src={product?.photo} alt={product?.title} />
         <p className="desc">{product?.description}</p>
         <p className="price">💰 ${product?.price}</p>
-        <p className="type">Category: {product?.type}</p>
+        <p className="type">Service: {product?.type}</p>
 
         <button className="btn btn-cart" onClick={handleAddToCart}>
           🛒 Add to Cart

@@ -1,4 +1,3 @@
-
 #ProductList {
   padding: 2rem;
   background: #151a1f;
@@ -9,7 +8,7 @@
 .products-list-page {
   max-width: 1200px;
   margin: 0 auto;
-  background-color:#151a1f;
+  background-color: #151a1f;
 }
 
 .products-title {
@@ -46,7 +45,8 @@
 /* ===== Product Grid ===== */
 .products-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, 250px); /* fixed card width */
+  justify-content: center; /* center cards */
   gap: 1.5rem;
   list-style: none;
   padding: 0;
@@ -55,11 +55,13 @@
 
 /* ===== Product Card ===== */
 .product-card {
-  background: #fff;
+  background: #221e1e;
   border-radius: 2rem;
   overflow: hidden;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  width: 250px;   /* fixed width */
+  height: 320px;  /* fixed height */
 }
 
 .product-card:hover {
@@ -71,25 +73,32 @@
   color: inherit;
   text-decoration: none;
   display: block;
+  height: 100%;
 }
 
 /* ===== Product Image ===== */
 .product-img {
   width: 100%;
-  height: 200px;
+  height: 80%; /* 80% of card height */
   object-fit: cover;
+  display: block;
 }
 
 /* ===== Product Info ===== */
 .product-info {
-  padding: 2rem;
+  height: 20%; /* 20% of card height */
+  padding: 0.5rem 1rem;
   text-align: center;
+  display: flex;
+  align-items: center;   /* center text vertically */
+  justify-content: center;
 }
 
 .product-info h3 {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 600;
-  color: #384766;
+  color: #f58457;
+  margin: 0;
 }
 
 /* ===== No Results ===== */

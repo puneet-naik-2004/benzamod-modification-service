@@ -15,7 +15,7 @@ import Portfolio from "../Portfolio";
 import {OrdersList} from "../Orders";
 import {UserListComponent} from "../UserListComponent";
 import InquiryList from "../InquiryList";
-import Categories from "../Category";
+// import Categories from "../Service";
 // import Admins from "../admin";       // Admin list component
 
 export const Dashboard = () => {
@@ -37,8 +37,8 @@ export const Dashboard = () => {
     switch (activeTab) {
       case "products":
         return <Products />;
-      case "services":
-        return <Services />;
+      // case "services":
+      //   return <Services />;
       case "contacts":
         return <ContactListComponent />;
       case "portfolio":
@@ -49,8 +49,8 @@ export const Dashboard = () => {
         return <UserListComponent />;
       case "inquiries":
         return <InquiryList />;
-      case "categories":
-        return <Categories />;
+      case "services":
+        return <Services />;
       default:
         return <h2>Select an option from the sidebar</h2>;
     }
@@ -77,12 +77,12 @@ export const Dashboard = () => {
             >
               📦 Products
             </li>
-            <li
+            {/* <li
               className={activeTab === "services" ? "active" : ""}
               onClick={() => setActiveTab("services")}
             >
               🛠 Services
-            </li>
+            </li> */}
             <li
               className={activeTab === "contacts" ? "active" : ""}
               onClick={() => setActiveTab("contacts")}
@@ -116,13 +116,13 @@ export const Dashboard = () => {
 
 
              
-            <li
-              className={activeTab === "categories" ? "active" : ""}
-              onClick={() => setActiveTab("categories")}
+             <li
+              className={activeTab === "services" ? "active" : ""}
+              onClick={() => setActiveTab("services")}
             >
-              🛠 Category
+              🛠 Services
             </li>
-
+ 
 
 
 

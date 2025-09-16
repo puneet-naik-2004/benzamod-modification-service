@@ -104,15 +104,15 @@ import Footer from "./Components/Footer"; // ✅ Import Footer
 
 // Lazy-loaded pages
 const HomePage = lazy(() => import("./Pages/HomePage"));
-const ServiceList = lazy(() => import("./Pages/ServiceList"));
-const ServiceDetail = lazy(() => import("./Pages/ServiceDetail"));
+// const ServiceList = lazy(() => import("./Pages/ServiceList"));
+// const ServiceDetail = lazy(() => import("./Pages/ServiceDetail"));
 const LoginPage = lazy(() => import("./Pages/LoginPage"));
 const RegisterPage = lazy(() => import("./Pages/RegisterPage"));
 const ProductsList = lazy(() => import("./Pages/ProductList"));
 const ProductDetail = lazy(() => import("./Pages/ProductDetail"));
 const AdminDashboard = lazy(() => import("./Pages/AdminDashboard"));
 const Product = lazy(() => import("./Pages/ProductPage"));
-const Service = lazy(() => import("./Pages/ServicePage"));
+// const Service = lazy(() => import("./Pages/ServicePage"));
 const ContactList = lazy(() => import("./Pages/ContactList"));
 const Orders = lazy(() => import("./Pages/OrderPage"));
 const FeatuerService = lazy(() => import("./Pages/FeatuerServicePage"));
@@ -125,7 +125,7 @@ const PortfolioList = lazy(() => import("./Pages/PortfolioList"));
 const InquiryList = lazy(() => import("./Components/InquiryList"));
 const About = lazy(() => import("./Components/About"));
 const Home = lazy(() => import("./Components/HeroBanner"));
-const Category = lazy(() => import("./Components/Category"));
+const Service = lazy(() => import("./Pages/ServicePage"));
 
 function AppContent() {
   const location = useLocation();
@@ -147,8 +147,8 @@ function AppContent() {
         <Routes>
           {/* Normal Website Routes */}
           <Route path="/" element={<HomePage />} />
-          <Route path="/service/:type" element={<ServiceList />} />
-          <Route path="/service/:type/:name" element={<ServiceDetail />} />
+          {/* <Route path="/service/:type" element={<ServiceList />} />
+          <Route path="/service/:type/:name" element={<ServiceDetail />} /> */}
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<RegisterPage />} />
           <Route path="/product/:type" element={<ProductsList />} />
@@ -157,7 +157,7 @@ function AppContent() {
 
           {/* Admin Routes */}
           <Route path="/admin/products" element={<Product />} />
-          <Route path="/admin/services" element={<Service />} />
+          {/* <Route path="/admin/services" element={<Service />} /> */}
           <Route path="/admin/contactList" element={<ContactList />} />
           <Route path="/admin/orders" element={<Orders />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
@@ -165,7 +165,7 @@ function AppContent() {
           <Route path="/admin/portfolio" element={<Portfolio />} />
           <Route path="/admin/userlist" element={<UserList />} />
           <Route path="/admin/inquiry" element={<InquiryList />} />
-           <Route path="/admin/Categories" element={<Category />} />
+           <Route path="/admin/Services" element={<Service />} />
 
 
           {/* Other Routes */}

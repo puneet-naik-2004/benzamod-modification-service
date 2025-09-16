@@ -35,12 +35,12 @@ export function ContactListComponent() {
 
   // 🔹 Filter contacts by search term
   const filteredContacts = contacts.filter((contact) => {
-    const term = searchTerm.toLowerCase();
+    const term = searchTerm?.toLowerCase();
     return (
-      contact.name.toLowerCase().includes(term) ||
-      contact.email.toLowerCase().includes(term) ||
-      (contact.phone && contact.phone.toLowerCase().includes(term)) ||
-      (contact.message && contact.message.toLowerCase().includes(term))
+      contact.name?.toLowerCase().includes(term) ||
+      contact.email?.toLowerCase().includes(term) ||
+      (contact.phone && contact.phone?.toLowerCase().includes(term)) ||
+      (contact.message && contact.message?.toLowerCase().includes(term))
     );
   });
 

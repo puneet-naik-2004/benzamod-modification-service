@@ -22,7 +22,7 @@ export const ProductsListComponent = () => {
 
   // ✅ Filtered products by type + search
   const filteredProducts = products
-    .filter((data) => data.type.toLowerCase() === type.toLowerCase())
+    .filter((data) => (data.type.toLowerCase() === type.toLowerCase())|| (data?.vehicleType?.toLowerCase() === type?.toLowerCase()))
     .filter((p) => p.title.toLowerCase().includes(searchTerm.toLowerCase()));
 
   // ✅ SEO Structured Data
@@ -71,7 +71,7 @@ export const ProductsListComponent = () => {
         />
         <meta
           property="og:image"
-          content={filteredProducts[0]?.photo || "/default-category.jpg"}
+          content={filteredProducts[0]?.photo || "/default-service.jpg"}
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={window.location.href} />

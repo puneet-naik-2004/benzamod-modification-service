@@ -73,7 +73,7 @@
 }
 
 .product-card {
-  background: #fff; /* White cards on black background */
+  background: #221d1d; /* White cards on black background */
   border-radius: 14px;
   padding: 1.5rem;
   text-align: center;
@@ -87,7 +87,7 @@
 }
 
 .product-card h3 {
-  color: #333;
+  color: #f78484;
   margin-bottom: 0.5rem;
 }
 
@@ -98,7 +98,7 @@
 }
 
 .product-card p {
-  color: #444;
+  color: #e2cccc;
   margin-bottom: 1rem;
 }
 
