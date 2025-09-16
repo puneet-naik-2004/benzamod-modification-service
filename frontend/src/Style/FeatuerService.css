@@ -70,6 +70,7 @@
 .feature-service h2 {
   font-size: 2rem;
   margin-bottom: 1.5rem;
+  color: #ee8352;
 }
 
 .feature-swiper {
@@ -109,4 +110,14 @@ span {
 .swiper-button-next,
 .swiper-button-prev {
   color: #000; /* ✅ Navigation arrow color */
+}
+.swiper{
+  overflow: visible !important;
+}
+.swiper-pagination-fraction, .swiper-pagination-custom, .swiper-horizontal > .swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal {
+    bottom: var(--swiper-pagination-bottom, -40px) !important;
+}
+
+.swiper-pagination-bullet {
+    background:  #b4a4a4 !important;
 }

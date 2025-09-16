@@ -53,10 +53,10 @@ const Hedder = () => {
 
       {/* ✅ Center: Nav Menu */}
       <ul className={`nav-menu ${mobileOpen ? "open" : ""}`}>
-        <li onClick={() => handleNav("/service/Bike", "bikes")}>
+        <li onClick={() => handleNav("/product/bike", "bikes")}>
           Bike
         </li>
-        <li onClick={() => handleNav("/service/Car", "cars")}>
+        <li onClick={() => handleNav("/product/car", "cars")}>
           Car 
         </li>
         {/* <li onClick={() => handleNav("/shop", "shop")}>

@@ -77,6 +77,15 @@ export const Dashboard = () => {
             >
               📦 Products
             </li>
+            <li
+              className={activeTab === "services" ? "active" : ""}
+              onClick={() => setActiveTab("services")}
+            >
+              🛠 Services
+            </li>
+
+
+
             {/* <li
               className={activeTab === "services" ? "active" : ""}
               onClick={() => setActiveTab("services")}
@@ -115,14 +124,7 @@ export const Dashboard = () => {
             </li>
 
 
-             
-             <li
-              className={activeTab === "services" ? "active" : ""}
-              onClick={() => setActiveTab("services")}
-            >
-              🛠 Services
-            </li>
- 
+           
 
 
 

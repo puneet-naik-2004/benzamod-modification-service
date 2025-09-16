@@ -4,7 +4,7 @@
   margin: auto;
   padding: 2rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #f9fafb;
+  background: #090a0a;
   color: #333;
 }
 
@@ -19,7 +19,7 @@
 
 /* ===== Form ===== */
 .service-form {
-  background: #fff;
+  background: #302a2a;
   padding: 1.5rem;
   border-radius: 12px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.08);
@@ -30,7 +30,7 @@
   margin-bottom: 1rem;
   font-size: 1.4rem;
   font-weight: bold;
-  color: #444;
+  color: #f07676;
 }
 
 .service-form input,
@@ -110,7 +110,7 @@
   font-size: 1.4rem;
   margin-bottom: 1rem;
   font-weight: bold;
-  color: #333;
+  color: #f1e4e4;
 }
 
 .service-list {
@@ -121,7 +121,7 @@
 
 /* ===== Cards ===== */
 .service-card {
-  background: #fff;
+  background: #1d1818;
   border-radius: 12px;
   padding: 1rem;
   box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
@@ -143,11 +143,12 @@
 .service-info h4 {
   font-size: 1.2rem;
   margin-bottom: 0.5rem;
+  color: #d1d5db;
 }
 
 .service-info .desc {
   font-size: 0.9rem;
-  color: #555;
+  color: #ddd8d8;
   margin-bottom: 1rem;
 }
 

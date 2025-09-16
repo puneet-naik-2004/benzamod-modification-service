@@ -1,6 +1,4 @@
-
-
-
+/* ===== Hero Section ===== */
 .hero-container {
   position: relative;
   width: 100%;
@@ -26,7 +24,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
+  text-align: center; /* ✅ centers content inside */
   color: #fff;
   animation: fadeInUp 1s ease-in-out;
 }
@@ -48,6 +46,8 @@
   cursor: pointer;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  margin: 0 auto;         /* ✅ centers button */
+  display: inline-block;  /* ✅ ensures margin works */
 }
 
 .hero-text .btn:hover {
@@ -55,6 +55,7 @@
   background: linear-gradient(135deg, #ff416c, #ff4b2b);
 }
 
+/* ===== Animation ===== */
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -66,21 +67,20 @@
   }
 }
 
-
-.navbar{
-    display: flex;
-    justify-content: space-around;
-    padding: 16px;
-    box-shadow: 0 1px 3px -2px black;
-
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  padding: 16px;
+  box-shadow: 0 1px 3px -2px black;
 }
 
-.nav-menu{
-    display: flex;
-    align-items: center;
-    list-style: none;
-    gap: 50px;
-    color: coral;
-    font-size: 20px;
-    font-weight: 500;
+.nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 50px;
+  color: coral;
+  font-size: 20px;
+  font-weight: 500;
 }
