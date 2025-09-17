@@ -105,6 +105,8 @@ span {
   font-weight: bold;
   display: block;
   margin-top: 0.5rem;
+  color: #f38b46;
+  font-size: 1.2rem;
 }
 
 .swiper-button-next,
