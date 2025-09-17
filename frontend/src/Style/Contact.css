@@ -105,7 +105,7 @@
   background: #0a0808;
 }
 
-.page-title h2 {
+h2.page-title {
   text-align: center;
   margin-bottom: 30px;
   font-size: 38px;

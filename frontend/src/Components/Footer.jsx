@@ -41,21 +41,10 @@ const Footer = () => {
           <ul className="footer-links">
             <li>+918765432192</li>
             <li>banzamod@gmail.com</li>
-            {/* <li><Link to="/terms">Terms & Conditions</Link></li> */}
-            {/* <li><Link to="/help">Help Center</Link></li> */}
+            
           </ul>
         </div>
 
-        {/* Social Links */}
-        {/* <div className="footer-section">
-          <h3 className="footer-subtitle">Follow Us</h3>
-          <div className="footer-socials">
-            <a href="#"><Facebook size={22} /></a>
-            <a href="#"><Twitter size={22} /></a>
-            <a href="#"><Instagram size={22} /></a>
-            <a href="#"><Linkedin size={22} /></a>
-          </div>
-        </div> */}
       </div>
 
       {/* Bottom Bar */}
