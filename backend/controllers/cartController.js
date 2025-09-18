@@ -76,13 +76,14 @@ exports.buynowcart = async (req, res) => {
         .status(404)
         .json({ success: false, message: "Cart item not found" });
     }
+    
 
     // Get address and customer from request
-    const { address, user } = req.body;
-    if (!address || !user._id) {
+    const { address, user,paymentMethod } = req.body;
+    if (!address || !user._id || !paymentMethod ) {
       return res.status(400).json({
         success: false,
-        message: "Address and customer_id are required",
+        message: "Address and customer_id and paymentMethod are required",
       });
     }
 
@@ -107,6 +108,7 @@ exports.buynowcart = async (req, res) => {
       customer_id: userModel._id,
       address_id: address_id,
       service_id: cart.service_id,
+      payment_method : paymentMethod 
     });
 
     await order.save();

@@ -1,3 +1,7 @@
+
+
+
+
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, LogIn, Shield } from "lucide-react";
@@ -51,38 +55,49 @@ const Hedder = () => {
         {mobileOpen ? <X size={28} /> : <Menu size={28} />}
       </div>
 
-      {/* ✅ Center: Nav Menu */}
+      {/* ✅ Nav Menu */}
       <ul className={`nav-menu ${mobileOpen ? "open" : ""}`}>
-        <li onClick={() => handleNav("/product/bike", "bikes")}>
-          Bike
-        </li>
-        <li onClick={() => handleNav("/product/car", "cars")}>
-          Car 
-        </li>
-        {/* <li onClick={() => handleNav("/shop", "shop")}>
-          Shop {menu === "shop" ? <hr /> : null}
-        </li>
-        <li onClick={() => handleNav("/parts", "parts")}>
-          Parts {menu === "parts" ? <hr /> : null}
-        </li> */}
-        <li onClick={() => handleNav("/portfolio", "portfolio")}>
-          Portfolio 
-        </li>
-        {/* <li onClick={() => handleNav("/about", "about")}>
-          About</li> */}
-        <li onClick={() => handleNav("/products", "products")}>
-          Product 
-        </li>
-        <li onClick={() => handleNav("/orders", "orders")}>
-          Orders 
-        </li>
-        <li onClick={() => handleNav("/cart", "cart")}>
-          Cart
-        </li>
+        <li onClick={() => handleNav("/product/bike", "bikes")}>Bike</li>
+        <li onClick={() => handleNav("/product/car", "cars")}>Car</li>
+        <li onClick={() => handleNav("/portfolio", "portfolio")}>Portfolio</li>
+        <li onClick={() => handleNav("/products", "products")}>Product</li>
+        <li onClick={() => handleNav("/orders", "orders")}>Orders</li>
+        <li onClick={() => handleNav("/cart", "cart")}>Cart</li>
+
+        {/* ✅ Only show this on MOBILE */}
+        <div className="mobile-only">
+          {isLoggedIn ? (
+            <>
+              <li className="mobile-user">Hi, {userName} 👋</li>
+              <li>
+                <button className="btn logout-btn" onClick={handleLogout}>
+                  Logout
+                </button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link to="/login" onClick={() => setMobileOpen(false)}>
+                  <button className="btn login-btn">
+                    <LogIn size={16} /> Login
+                  </button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/adminlogin" onClick={() => setMobileOpen(false)}>
+                  <button className="btn admin-btn">
+                    <Shield size={16} /> Admin
+                  </button>
+                </Link>
+              </li>
+            </>
+          )}
+        </div>
       </ul>
 
-      {/* ✅ Right Side: Login/Admin OR Welcome/Logout/Cart */}
-      <div className="nav-login-cart">
+      {/* ✅ Right side (Desktop only) */}
+      <div className="nav-login-cart desktop-only">
         {isLoggedIn ? (
           <>
             <span className="welcome-text">Hi, {userName} 👋</span>
@@ -104,7 +119,6 @@ const Hedder = () => {
             </Link>
           </>
         )}
-        {/* <div className="nav-cart-count">0</div> */}
       </div>
     </div>
   );

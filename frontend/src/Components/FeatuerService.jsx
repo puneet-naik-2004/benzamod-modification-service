@@ -32,17 +32,27 @@ const FeatureService = () => {
 
   return (
     <div className="feature-service">
-      <h2>Featured Products</h2>
+      <h2>Featured SERVICE</h2>
 
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
-        slidesPerView={3}   // ✅ Show 3 at a time
-        navigation          // ✅ Arrows
+        navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 2500, disableOnInteraction: false }}
         loop
         className="feature-swiper"
+        breakpoints={{
+          0: {
+            slidesPerView: 1, // ✅ Mobile: 1 card
+          },
+          640: {
+            slidesPerView: 2, // ✅ Small tablets
+          },
+          1024: {
+            slidesPerView: 3, // ✅ Desktop
+          },
+        }}
       >
         {services.map((each) => (
           <SwiperSlide key={each._id}>
@@ -50,11 +60,7 @@ const FeatureService = () => {
               className="nav-btn"
               onClick={() => navigate(`/product/${each.name?.toLowerCase()}`)}
             >
-              <img
-                src={each?.photo}
-                alt={each.name}
-                className="btn-icon"
-              />
+              <img src={each?.photo} alt={each.name} className="btn-icon" />
               <span>{each.name}</span>
               <div>{each.description}</div>
             </button>

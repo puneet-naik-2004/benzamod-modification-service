@@ -1,149 +1,166 @@
-/* 🔹 Main container */
-
-body {
-  background: #000000 !important;
-}
-
+/* ===== Cart Container ===== */
 .cart-container {
-  max-width: 1000px;
-  margin: 40px auto;
   padding: 20px;
-  background: #ac9898; /* dark background */
-  border-radius: 12px;
-  box-shadow: 0px 4px 12px rgba(0,0,0,0.6);
-  color: #f5f5f5; /* light text */
+  font-family: "Segoe UI", sans-serif;
+  background: #0b0b0b; /* full dark background */
+  min-height: 100vh;
+  color: #ffffff; /* default text white */
 }
 
 .cart-container h2 {
   text-align: center;
-  font-size: 28px;
-  margin-bottom: 25px;
-  color: #e46b33;
+  margin-bottom: 20px;
+  color: #ffffff;
 }
 
-/* 🔹 Cart list */
+/* ===== Cart List ===== */
 .cart-list {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-/* 🔹 Each cart card */
+/* ===== Cart Card ===== */
 .cart-card {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
-  background: #1e1e1e;
+  gap: 15px;
   padding: 15px;
+  border: 1px solid #333;
   border-radius: 12px;
-  box-shadow: 0px 2px 10px rgba(0, 0, 0, 0.7);
-  transition: transform 0.2s ease;
+  background: #1a1a1a; /* dark gray card */
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
+  color: #fff;
 }
 
-.cart-card:hover {
-  transform: translateY(-3px);
-  background: #242424;
-}
-
-/* 🔹 Product image */
 .cart-card img {
-  width: 140px;
+  width: 120px;
   height: 120px;
   object-fit: cover;
-  border-radius: 10px;
+  border-radius: 8px;
 }
 
-/* 🔹 Info section */
+/* ===== Cart Info ===== */
 .cart-info {
   flex: 1;
 }
 
 .cart-info h4 {
-  margin: 0;
-  font-size: 20px;
-  color: #ffffff;
+  margin: 0 0 5px;
+  font-size: 18px;
+  color: #fff;
 }
 
 .cart-info p {
-  margin: 4px 0;
-  color: #cccccc;
+  margin: 3px 0;
   font-size: 14px;
+  color: #ccc; /* lighter gray for text */
 }
 
-/* 🔹 Quantity Control */
+/* ===== Quantity Control ===== */
 .quantity-control {
   display: flex;
   align-items: center;
-  gap: 8px;
-  margin: 8px 0;
+  margin-top: 8px;
 }
 
 .quantity-control button {
-  background: #333;
-  color: #fff;
+  width: 28px;
+  height: 28px;
   border: none;
-  padding: 6px 12px;
-  font-size: 16px;
+  background: #007bff;
+  color: #fff;
+  border-radius: 50%;
   cursor: pointer;
-  border-radius: 6px;
-  transition: 0.2s;
+  font-size: 16px;
+  transition: background 0.2s ease;
 }
 
 .quantity-control button:hover {
-  background: #444;
+  background: #0056b3;
 }
 
 .quantity-control span {
-  min-width: 25px;
-  text-align: center;
+  margin: 0 10px;
+  font-size: 16px;
   font-weight: bold;
   color: #fff;
 }
 
-/* 🔹 Actions */
+/* ===== Actions ===== */
 .cart-actions {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 8px;
 }
 
-.cart-actions .buy-btn,
-.cart-actions .delete-btn {
-  padding: 10px 14px;
+.buy-btn,
+.delete-btn {
+  padding: 8px 12px;
   border: none;
-  border-radius: 8px;
-  font-size: 14px;
+  border-radius: 6px;
   cursor: pointer;
-  transition: 0.3s;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  transition: transform 0.2s ease, opacity 0.2s ease;
 }
 
-.cart-actions .buy-btn {
+.buy-btn {
   background: #28a745;
   color: white;
 }
 
-.cart-actions .buy-btn:hover {
-  background: #218838;
+.buy-btn:hover {
+  background: #1e7e34;
+  transform: scale(1.05);
 }
 
-.cart-actions .delete-btn {
+.delete-btn {
   background: #dc3545;
   color: white;
 }
 
-.cart-actions .delete-btn:hover {
-  background: #c82333;
+.delete-btn:hover {
+  background: #b02a37;
+  transform: scale(1.05);
 }
 
-/* 🔹 Grand total */
+/* ===== Total Section ===== */
 .cart-total {
-  margin-top: 25px;
+  margin-top: 20px;
   padding: 15px;
-  text-align: right;
-  font-size: 20px;
+  text-align: center;
+  background: #111;
+  border-radius: 8px;
+  font-size: 18px;
   font-weight: bold;
-  color: #ffffff;
-  background: #1e1e1e;
-  border-radius: 10px;
-  box-shadow: 0px 2px 10px rgba(0,0,0,0.6);
+  color: #fff;
+  border: 1px solid #333;
+}
+
+/* ===== Mobile Responsive ===== */
+@media (max-width: 768px) {
+  .cart-card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .cart-card img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+  }
+
+  .cart-info {
+    text-align: center;
+  }
+
+  .cart-actions {
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 10px;
+  }
 }

@@ -1,6 +1,7 @@
 
 
 
+
 import {
   createProduct,
   deleteProduct,
@@ -16,14 +17,16 @@ function Products() {
   const [title, setTitle] = useState("");
   const [price, setPrice] = useState("");
   const [type, setType] = useState("Wraps"); // Category type
-  const [vehicleType, setVehicleType] = useState("Bike"); // ✅ New state for Bike / Car
+  const [vehicleType, setVehicleType] = useState("Bike"); // ✅ Bike / Car
+  const [bikeBrand, setBikeBrand] = useState("KTM"); // ✅ Default Bike brand
+  const [carBrand, setCarBrand] = useState("BMW"); // ✅ Default Car brand
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState("");
 
   const [products, setProducts] = useState([]);
   const [services, setServices] = useState([]);
   const [editingId, setEditingId] = useState(null);
-  const [searchTerm, setSearchTerm] = useState(""); // ✅ search bar state
+  const [searchTerm, setSearchTerm] = useState(""); // ✅ search bar
   const formRef = useRef(null);
 
   useEffect(() => {
@@ -57,7 +60,16 @@ function Products() {
       return;
     }
 
-    const newProduct = { title, price, type, vehicleType, description, photo };
+    const newProduct = {
+      title,
+      price,
+      type,
+      vehicleType,
+      bikeBrand: vehicleType === "Bike" ? bikeBrand : null,
+      carBrand: vehicleType === "Car" ? carBrand : null,
+      description,
+      photo,
+    };
 
     if (editingId) {
       updateProduct(editingId, newProduct)
@@ -91,11 +103,12 @@ function Products() {
     setTitle(product.title);
     setPrice(product.price);
     setType(product.type);
-    setVehicleType(product.vehicleType || "Bike"); // ✅ load vehicle type
+    setVehicleType(product.vehicleType || "Bike");
+    setBikeBrand(product.bikeBrand || "KTM");
+    setCarBrand(product.carBrand || "BMW");
     setDescription(product.description);
     setPhoto(product.photo);
 
-    // ✅ Smooth scroll to form
     if (formRef.current) {
       formRef.current.scrollIntoView({
         behavior: "smooth",
@@ -109,45 +122,44 @@ function Products() {
     setTitle("");
     setPrice("");
     setType("Wraps");
-    setVehicleType("Bike"); // ✅ reset
+    setVehicleType("Bike");
+    setBikeBrand("KTM");
+    setCarBrand("BMW");
     setDescription("");
     setPhoto("");
   };
 
-  // ✅ Filter products based only on title
   const filteredProducts = products.filter((p) =>
     p.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  // ✅ SEO Structured Data
   const structuredData = {
     "@context": "https://schema.org/",
     "@type": "Product",
-    name: "Manage Products | SHOPPER Admin",
+    name: "Manage Products | BENZAMOD Admin",
     description:
       "Admin panel to manage wraps, exhausts, lights, and seats products. Add, update, or delete products.",
     url: window.location.href,
     brand: {
       "@type": "Organization",
-      name: "SHOPPER",
+      name: "BENZAMOD",
     },
   };
 
   return (
     <div className="products-container">
-      {/* 🔎 SEO Helmet */}
       <Helmet>
-        <title>Manage Products | SHOPPER Admin</title>
+        <title>Manage Products | BENZAMOD Admin</title>
         <meta
           name="description"
-          content="Admin panel to manage Wraps, Exhausts, Lights, and Seats products at SHOPPER."
+          content="Admin panel to manage Wraps, Exhausts, Lights, and Seats products at BENZAMOD."
         />
         <meta
           name="keywords"
-          content="Admin, Manage Products, SHOPPER, Wraps, Exhausts, Lights, Seats"
+          content="Admin, Manage Products, BENZAMOD, Wraps, Exhausts, Lights, Seats"
         />
 
-        <meta property="og:title" content="Manage Products | SHOPPER Admin" />
+        <meta property="og:title" content="Manage Products | BENZAMOD Admin" />
         <meta
           property="og:description"
           content="Admin panel for managing Wraps, Exhausts, Lights, and Seats products."
@@ -183,7 +195,7 @@ function Products() {
           onChange={(e) => setPrice(e.target.value)}
         />
 
-        {/* ✅ Vehicle Type */}
+        {/* Vehicle Type */}
         <select
           value={vehicleType}
           onChange={(e) => setVehicleType(e.target.value)}
@@ -191,6 +203,32 @@ function Products() {
           <option value="Bike">🏍️ Bike</option>
           <option value="Car">🚘 Car</option>
         </select>
+
+        {/* Bike Brands */}
+        {vehicleType === "Bike" && (
+          <select value={bikeBrand} onChange={(e) => setBikeBrand(e.target.value)}>
+            <option value="KTM">🏍️ KTM</option>
+            <option value="Hero Honda">🏍️ Hero Honda</option>
+            <option value="Pulsar">🏍️ Pulsar</option>
+            <option value="Royal Enfield">🏍️ Royal Enfield</option>
+            <option value="Yamaha">🏍️ Yamaha</option>
+            <option value="Suzuki">🏍️ Suzuki</option>
+            <option value="Honda">🏍️ Honda</option>
+          </select>
+        )}
+
+        {/* Car Brands */}
+        {vehicleType === "Car" && (
+          <select value={carBrand} onChange={(e) => setCarBrand(e.target.value)}>
+            <option value="BMW">🚘 BMW</option>
+            <option value="Audi">🚘 Audi</option>
+            <option value="Mercedes">🚘 Mercedes</option>
+            <option value="Maruti">🚘 Maruti</option>
+            <option value="Hyundai">🚘 Hyundai</option>
+            <option value="Tata">🚘 Tata</option>
+            <option value="Mahindra">🚘 Mahindra</option>
+          </select>
+        )}
 
         {/* Product Type */}
         <select value={type} onChange={(e) => setType(e.target.value)}>
@@ -232,7 +270,7 @@ function Products() {
         </div>
       </form>
 
-      {/* 🔍 Search Bar */}
+      {/* Search Bar */}
       <div className="search-bar">
         <input
           type="text"
@@ -253,6 +291,12 @@ function Products() {
                 <h4>{p.title}</h4>
                 <p className="price">💰 ${p.price}</p>
                 <p className="vehicle">🚦 {p.vehicleType}</p>
+                {p.vehicleType === "Bike" && p.bikeBrand && (
+                  <p className="brand">🏍️ Brand: {p.bikeBrand}</p>
+                )}
+                {p.vehicleType === "Car" && p.carBrand && (
+                  <p className="brand">🚘 Brand: {p.carBrand}</p>
+                )}
                 <p className="type">{p.type}</p>
                 <p className="desc">{p.description}</p>
                 <div className="card-buttons">
