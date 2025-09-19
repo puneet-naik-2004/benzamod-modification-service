@@ -33,6 +33,7 @@ function InquiryList() {
   const filteredInquiries = inquiries.filter((inq) => {
     const term = searchTerm.toLowerCase();
     return (
+     
       inq.name.toLowerCase().includes(term) ||
       inq.email.toLowerCase().includes(term) ||
       (inq.message && inq.message.toLowerCase().includes(term))
@@ -56,6 +57,8 @@ function InquiryList() {
         <table className="inquiry-table">
           <thead>
             <tr>
+              <th>Productid</th>
+              <th>Product</th>
               <th>👤 Name</th>
               <th>📧 Email</th>
               <th>💬 Message</th>
@@ -65,6 +68,8 @@ function InquiryList() {
           <tbody>
             {filteredInquiries.map((inq) => (
               <tr key={inq._id}>
+                <td>{inq.product_id?._id}</td>
+                <td>{inq.product_id?.title}</td>
                 <td>{inq.name}</td>
                 <td>{inq.email}</td>
                 <td>{inq.message}</td>
@@ -73,6 +78,8 @@ function InquiryList() {
                     className="btn btn-view"
                     onClick={() =>
                       alert(`
+Product_id:${inq.product_id}                        
+Product:${inq.title}                       
 Name: ${inq.name}
 Email: ${inq.email}
 Message: ${inq.message}

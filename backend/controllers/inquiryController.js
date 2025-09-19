@@ -15,7 +15,8 @@ exports.createInquiry = async (req, res) => {
 // GET /api/inquiries - get all inquiries
 exports.getInquiry = async (req, res) => {
   try {
-    const inquiry = await Inquiry.find().sort({ createdAt: -1 });
+    const inquiry = await Inquiry.find().sort({ createdAt: -1 }).populate("product_id", "title price type photo");
+
     res.json({ success: true, inquiry });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });

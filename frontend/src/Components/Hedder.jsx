@@ -1,7 +1,3 @@
-
-
-
-
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, LogIn, Shield } from "lucide-react";
@@ -63,6 +59,7 @@ const Hedder = () => {
         <li onClick={() => handleNav("/products", "products")}>Service</li>
         <li onClick={() => handleNav("/orders", "orders")}>Orders</li>
         <li onClick={() => handleNav("/cart", "cart")}>Cart</li>
+        <li onClick={() => handleNav("/profile", "profile")}>Profile</li>
 
         {/* ✅ Only show this on MOBILE */}
         <div className="mobile-only">
@@ -91,6 +88,13 @@ const Hedder = () => {
                   </button>
                 </Link>
               </li>
+              <li>
+                <Link to="/profile" onClick={() => setMobileOpen(false)}>
+                  <button className="btn profile-btn">
+                    <Shield size={16} /> Profile
+                  </button>
+                </Link>
+              </li>
             </>
           )}
         </div>
@@ -100,10 +104,14 @@ const Hedder = () => {
       <div className="nav-login-cart desktop-only">
         {isLoggedIn ? (
           <>
-            <span className="welcome-text">Hi, {userName} 👋</span>
             <button className="btn logout-btn" onClick={handleLogout}>
               Logout
             </button>
+            <Link to="/profile">
+              <button className="btn admin-btn">
+                <Shield size={16} /> Profile
+              </button>
+            </Link>
           </>
         ) : (
           <>

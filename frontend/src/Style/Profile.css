@@ -1,0 +1,95 @@
+.profile-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 2rem;
+  background: #0a0a0f;
+  /* min-height: 100vh; */
+  color: #fff;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.profile-card {
+  background: #1a1a1a;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.5);
+}
+
+.profile-card h2 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.profile-card h3 {
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 1.3rem;
+}
+
+.address-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.address-list li {
+  background: #2a2a2a;
+  padding: 8px 12px;
+  margin: 5px 0;
+  border-radius: 6px;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #fff;
+  margin-top: 10px;
+  transition: background 0.2s;
+}
+
+.password-btn {
+  background-color: #ff6b6b;
+}
+
+.password-btn:hover {
+  background-color: #ff3b3b;
+}
+
+.save-btn {
+  background-color: #1a73e8;
+}
+
+.save-btn:hover {
+  background-color: #155ab6;
+}
+
+/* Password Form */
+.password-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.password-form input {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #444;
+  background: #2a2a2a;
+  color: #fff;
+}
+
+.password-form input::placeholder {
+  color: #aaa;
+}
+
+.message {
+  margin-top: 10px;
+  font-size: 0.9rem;
+  color: #ffcc00;
+}

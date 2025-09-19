@@ -24,7 +24,9 @@ export const ProductDetailComponent = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [description, setDescription] = useState("");
-
+  
+  
+  
   useEffect(() => {
     getProducts().then((fetchedProducts) => {
       if (!fetchedProducts.error) {
@@ -43,7 +45,7 @@ export const ProductDetailComponent = () => {
     }
 
     const cartData = {
-      product_id: product._id,
+      product_id: product_id,
       title: product.title,
       price: product.price,
       type: product.type,
@@ -106,7 +108,7 @@ export const ProductDetailComponent = () => {
       name,
       email,
       description,
-      productId: product._id,
+      product_id: product._id,
       productTitle: product.title,
       date: new Date().toISOString(),
     };
@@ -118,6 +120,7 @@ export const ProductDetailComponent = () => {
           setName("");
           setEmail("");
           setDescription("");
+         
         } else {
           alert("❌ Failed to submit inquiry");
         }
@@ -217,6 +220,14 @@ export const ProductDetailComponent = () => {
       {/* Right Side - Inquiry Form */}
       <form onSubmit={handleInquirySubmit} className="inquiry-form">
         <h3>Inquiry Form</h3>
+         <input
+          value={ product_id}
+         />
+
+         <input
+          value={ product.title}
+         />
+
         <input
           type="text"
           placeholder="Your Name"

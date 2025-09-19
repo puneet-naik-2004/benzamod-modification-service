@@ -30,6 +30,7 @@ const InquiryList = lazy(() => import("./Components/InquiryList"));
 const About = lazy(() => import("./Components/About"));
 const Home = lazy(() => import("./Components/HeroBanner"));
 const Service = lazy(() => import("./Pages/ServicePage"));
+const Profile = lazy(() => import("./Pages/ProfilePage"));
 
 function AppContent() {
   const location = useLocation();
@@ -83,6 +84,7 @@ function AppContent() {
           <Route path="/buynow/:id" element={<BuynowPage />} />
           <Route path="/about" element={<About />} />
           <Route path="/pages" element={<Home />} />
+          <Route path="/profile" element={<Profile />} />
         </Routes>
       </Suspense>
 
