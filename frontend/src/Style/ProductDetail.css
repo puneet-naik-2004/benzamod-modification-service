@@ -130,6 +130,7 @@
 .inquiry-form textarea {
   width: 100%;
   padding: 12px;
+  margin: 10px 0px;
   border: 1px solid #ddd;
   border-radius: 10px;
   font-size: 1rem;
