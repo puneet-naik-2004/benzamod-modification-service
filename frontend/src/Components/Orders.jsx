@@ -111,9 +111,9 @@ export const OrdersList = () => {
 
                   {/* Buttons */}
                   <div className="buttons">
-                    <button className="view-btn">
+                    {/* <button className="view-btn">
                       <Eye size={16} /> View
-                    </button>
+                    </button> */}
                     <button
                       className="cancel-btn"
                       onClick={() => handleDelete(order._id)}
