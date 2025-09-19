@@ -32,7 +32,7 @@ const FeatureService = () => {
 
   return (
     <div className="feature-service">
-      <h2>Featured SERVICE</h2>
+      <h2>FEATURED SERVICE</h2>
 
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}

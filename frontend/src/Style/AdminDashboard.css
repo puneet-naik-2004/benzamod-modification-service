@@ -6,6 +6,7 @@
   background: #111827; /* Dark theme */
   color: #fff;
   font-family: "Segoe UI", sans-serif;
+  overflow: hidden;
 }
 
 /* Navbar */
@@ -29,12 +30,16 @@
   border: none;
   color: #fff;
   cursor: pointer;
+  font-size: 22px;
+  display: none; /* hidden on desktop */
 }
 
 /* Layout */
 .dashboard-layout {
   display: flex;
   flex: 1;
+  height: calc(100vh - 60px); /* Full height minus navbar */
+  overflow: hidden;
 }
 
 /* Sidebar */
@@ -66,10 +71,11 @@
 .sidebar ul li {
   padding: 12px 20px;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-.sidebar ul li:hover {
+.sidebar ul li:hover,
+.sidebar ul li.active {
   background: #ff4500;
   color: #fff;
   border-radius: 8px;
@@ -79,7 +85,7 @@
 .dashboard-content {
   flex: 1;
   padding: 20px;
-  overflow-y: auto;
+  overflow-y: auto; /* ✅ only content scrolls */
 }
 
 .content-box {
@@ -94,28 +100,59 @@
   margin-bottom: 10px;
 }
 
-.sidebar ul li {
-  padding: 12px 20px;
-  cursor: pointer;
-  transition: background 0.3s ease, color 0.3s ease;
+/* ✅ Mobile View */
+@media (max-width: 768px) {
+  .dashboard-layout {
+    flex-direction: column;
+  }
+
+  /* Sidebar slides over content */
+  .sidebar {
+    position: fixed;
+    top: 60px; /* below navbar */
+    left: 0;
+    height: 100%;
+    width: 220px;
+    transform: translateX(-100%);
+    z-index: 1000;
+  }
+
+  .sidebar.open {
+    transform: translateX(0);
+  }
+
+  /* Show hamburger menu on mobile */
+  .menu-btn {
+    display: block;
+  }
+
+  /* Content full width when sidebar hidden */
+  .dashboard-content {
+    padding: 15px;
+  }
+
+  /* Content box spacing */
+  .content-box {
+    padding: 15px;
+    font-size: 14px;
+  }
 }
 
-.sidebar ul li:hover,
-.sidebar ul li.active {
-  background: #ff4500;
-  color: #fff;
-  border-radius: 8px;
-}
-.dashboard-layout {
-  display: flex;
-  flex: 1;
-  height: calc(100vh - 60px); /* Full height minus navbar */
-  overflow: hidden;
-}
+/* ✅ Extra small phones */
+@media (max-width: 480px) {
+  .navbar-title {
+    font-size: 16px;
+  }
 
-.dashboard-content {
-  flex: 1;
-  padding: 20px;
-  overflow-y: auto; /* ✅ only content scrolls */
-}
+  .menu-btn {
+    font-size: 20px;
+  }
 
+  .sidebar {
+    width: 180px;
+  }
+
+  .content-box h2 {
+    font-size: 16px;
+  }
+}

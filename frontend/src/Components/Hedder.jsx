@@ -60,7 +60,7 @@ const Hedder = () => {
         <li onClick={() => handleNav("/product/bike", "bikes")}>Bike</li>
         <li onClick={() => handleNav("/product/car", "cars")}>Car</li>
         <li onClick={() => handleNav("/portfolio", "portfolio")}>Portfolio</li>
-        <li onClick={() => handleNav("/products", "products")}>Product</li>
+        <li onClick={() => handleNav("/products", "products")}>Service</li>
         <li onClick={() => handleNav("/orders", "orders")}>Orders</li>
         <li onClick={() => handleNav("/cart", "cart")}>Cart</li>
 

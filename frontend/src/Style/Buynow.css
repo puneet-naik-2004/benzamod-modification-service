@@ -1,4 +1,4 @@
-/* 📌 BuynowComponent.css */
+/* 📌 BuynowComponent.css
 .buy-now-container {
   max-width: 500px;
   margin: 50px auto;
@@ -62,4 +62,101 @@
   .buy-now-container h2 {
     font-size: 1.4rem;
   }
+} */
+
+
+
+
+/* ====== Buy Now Container (Dark Theme) ====== */
+.buy-now-container {
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 25px 30px;
+  background: #111; /* Dark card */
+  border-radius: 12px;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.6);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #f5f5f5; /* Light text */
 }
+
+/* Title */
+.buy-now-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6rem;
+  color: #ffffff;
+  font-weight: 600;
+  border-bottom: 1px solid #333;
+  padding-bottom: 10px;
+}
+
+/* Form Inputs */
+.buy-now-container form input,
+.buy-now-container form select {
+  width: 100%;
+  padding: 12px 14px;
+  margin: 10px 0;
+  border: 1px solid #333;
+  background: #1c1c1c;
+  border-radius: 8px;
+  outline: none;
+  font-size: 0.95rem;
+  color: #f5f5f5;
+  transition: border 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+.buy-now-container form input::placeholder {
+  color: #aaa;
+}
+
+.buy-now-container form input:focus,
+.buy-now-container form select:focus {
+  border-color: #00bfff;
+  box-shadow: 0 0 6px rgba(0, 191, 255, 0.5);
+}
+
+/* Payment Method Section */
+.buy-now-container h3 {
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+  color: #ddd;
+  font-weight: 500;
+}
+
+/* Button */
+.buy-now-container button {
+  width: 100%;
+  padding: 14px;
+  margin-top: 18px;
+  background: #00bfff;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.3s ease-in-out, transform 0.2s ease-in-out;
+}
+
+.buy-now-container button:hover {
+  background: #009acd;
+  transform: translateY(-2px);
+}
+
+.buy-now-container button:active {
+  transform: translateY(1px);
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .buy-now-container {
+    width: 90%;
+    padding: 20px;
+  }
+
+  .buy-now-container h2 {
+    font-size: 1.4rem;
+  }
+}
+

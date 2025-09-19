@@ -13,7 +13,7 @@ body {
   margin: 40px auto;
   padding: 20px;
   max-width: 1000px;
-  background-color: black;
+  background-color: #08070a(15, 12, 12);
 }
 
 .quick-nav h2 {

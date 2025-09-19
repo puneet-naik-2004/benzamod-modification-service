@@ -29,8 +29,8 @@ export const ProductsListComponent = () => {
   const structuredData = {
     "@context": "https://schema.org/",
     "@type": "CollectionPage",
-    name: `${type} Products | SHOPPER`,
-    description: `Explore our wide range of ${type} products at SHOPPER.`,
+    name: `${type} Products | BENZAMOD`,
+    description: `Explore our wide range of ${type} products at BENZAMOD.`,
     url: window.location.href,
     mainEntity: filteredProducts.map((p) => ({
       "@type": "Product",
@@ -40,7 +40,7 @@ export const ProductsListComponent = () => {
       sku: p._id,
       brand: {
         "@type": "Brand",
-        name: "SHOPPER",
+        name: "BENZAMOD",
       },
       offers: {
         "@type": "Offer",
@@ -56,18 +56,18 @@ export const ProductsListComponent = () => {
     <div id="ProductList">
       {/* 🔎 SEO Helmet */}
       <Helmet>
-        <title>{`${type} Products | SHOPPER`}</title>
+        <title>{`${type} Products | BENZAMOD`}</title>
         <meta
           name="description"
-          content={`Buy the best ${type} products at SHOPPER. Explore top deals, high quality items, and exclusive offers.`}
+          content={`Buy the best ${type} products at BENZAMOD. Explore top deals, high quality items, and exclusive offers.`}
         />
-        <meta name="keywords" content={`${type}, ${type} products, SHOPPER`} />
+        <meta name="keywords" content={`${type}, ${type} products, BENZAMOD`} />
 
         {/* OpenGraph */}
-        <meta property="og:title" content={`${type} Products | SHOPPER`} />
+        <meta property="og:title" content={`${type} Products | BENZAMOD`} />
         <meta
           property="og:description"
-          content={`Discover the best ${type} products at SHOPPER.`}
+          content={`Discover the best ${type} products at BENZAMOD.`}
         />
         <meta
           property="og:image"
@@ -89,7 +89,7 @@ export const ProductsListComponent = () => {
       </Helmet>
 
       <div className="products-list-page">
-        <h2 className="products-title">{type.toUpperCase()} SERVICES</h2>
+        <h2 className="products-title">{type.toUpperCase()} PRODUCTS</h2>
 
         {/* 🔎 Search Bar */}
         <div className="search-bar">
