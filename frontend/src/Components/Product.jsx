@@ -152,17 +152,17 @@ function Products() {
         <title>Manage Products | BENZAMOD Admin</title>
         <meta
           name="description"
-          content="Admin panel to manage Wraps, Exhausts, Lights,  Seats, and suspension products at BENZAMOD."
+          content="Admin panel to manage Wraps, Exhausts, Lights,  Seats, and Suspension products at BENZAMOD."
         />
         <meta
           name="keywords"
-          content="Admin, Manage Products, BENZAMOD, Wraps, Exhausts, Lights, Seats, suspension"
+          content="Admin, Manage Products, BENZAMOD, Wraps, Exhausts, Lights, Seats, Suspension"
         />
 
         <meta property="og:title" content="Manage Products | BENZAMOD Admin" />
         <meta
           property="og:description"
-          content="Admin panel for managing Wraps, Exhausts, Lights, Seats,and suspension products."
+          content="Admin panel for managing Wraps, Exhausts, Lights, Seats,and Suspension products."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={window.location.href} />

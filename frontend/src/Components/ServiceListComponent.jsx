@@ -88,7 +88,7 @@ export const ServiceListComponent = () => {
       </Helmet>
 
       <div className="products-list-page">
-        <h2 className="products-title">{type.toUpperCase()} Services</h2>
+        <h2 className="products-title">{type.toUpperCase()} SERVICES</h2>
 
         {/* 🔎 Search Bar */}
         <div className="search-bar">

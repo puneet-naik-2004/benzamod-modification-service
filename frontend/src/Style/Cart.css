@@ -32,7 +32,7 @@ body {
 
 /* === Each Cart Card === */
 .cart-card {
-  background: #111;
+  background: #242121;
   border-radius: 12px;
   padding: 1.2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.8);
@@ -69,13 +69,13 @@ body {
 
 /* === Cart Info === */
 .cart-info h4 {
-  color: #fff;
+  color: #cadd1d;
   margin-bottom: 0.5rem;
 }
 
 .cart-info p {
   margin: 0.2rem 0;
-  color: #ccc;
+  color: #f5ecec;
   font-size: 0.9rem;
 }
 
@@ -106,7 +106,7 @@ body {
 
 .quantity-control span {
   font-size: 1rem;
-  color: #fff;
+  color: #ca1616;
 }
 
 /* === Cart Actions === */

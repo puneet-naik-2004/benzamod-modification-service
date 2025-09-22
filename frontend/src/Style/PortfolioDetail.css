@@ -108,3 +108,88 @@
 .portfolio-detail a:hover {
   color: #ffb400;
 }
+/* Review Form */
+.review-form {
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #0a0909;
+  max-width: 500px;
+}
+
+.review-form h4 {
+  margin-bottom: 1rem;
+  color: #ec691d;
+  font-size: 1.2rem;
+}
+
+.review-form input,
+.review-form select,
+.review-form textarea {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 1rem;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.review-form input:focus,
+.review-form select:focus,
+.review-form textarea:focus {
+  border-color: #ee8352;
+  outline: none;
+}
+
+.review-form textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+.review-buttons {
+  display: flex;
+  gap: 10px;
+  justify-content: flex-end;
+}
+
+.review-buttons .btn-submit,
+.review-buttons .btn-cancel,
+.btn-add-review {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-submit {
+  background-color: #ee8352;
+  color: #fff;
+}
+
+.btn-submit:hover {
+  background-color: #d96e3f;
+}
+
+.btn-cancel {
+  background-color: #ccc;
+  color: #333;
+}
+
+.btn-cancel:hover {
+  background-color: #b3b3b3;
+}
+
+.btn-add-review {
+  background-color: #0a90ff;
+  color: #fff;
+  margin-top: 1rem;
+}
+
+.btn-add-review:hover {
+  background-color: #0577d0;
+}

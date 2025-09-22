@@ -3,6 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Menu, X, LogIn, Shield } from "lucide-react";
 import "../Style/Hedder.css";
 import { useAuth } from "Context/AuthContext";
+import { getCart, deleteCart, buynowCart } from "Services/cart";
 
 const Hedder = () => {
   const [menu, setMenu] = useState("bikes");
@@ -10,6 +11,7 @@ const Hedder = () => {
   const [userName, setUserName] = useState("");
   const [mobileOpen, setMobileOpen] = useState(false);
   const navigate = useNavigate();
+   const [cart, setCart] = useState([])
   const { user } = useAuth();
 
   useEffect(() => {
@@ -20,6 +22,8 @@ const Hedder = () => {
       setUserName(storedName || "User");
     }
   }, []);
+
+  
 
   const handleNav = (path, section) => {
     setMenu(section);
@@ -33,6 +37,24 @@ const Hedder = () => {
     setUserName("");
     navigate("/login");
   };
+
+
+  
+    useEffect(() => {
+      loadCart();
+    }, []);
+  
+    const loadCart = async () => {
+      const data = await getCart();
+      if (!data.error) {
+        // ✅ Add quantity field (default 1) to each cart item
+        setCart(
+          data.cart
+            .filter((each) => each.customer_id === user?._id)
+            .map((item) => ({ ...item, quantity: item.quantity || 1 }))
+        );
+      }
+    };
 
   return (
     <div className="navbar">
@@ -54,14 +76,13 @@ const Hedder = () => {
       {/* ✅ Nav Menu */}
       <ul className={`nav-menu ${mobileOpen ? "open" : ""}`}>
        
+         
          <li onClick={() => handleNav("/pages", "pages")}>Home</li>
-        {/* <li onClick={() => handleNav("/product/bike", "bikes")}>Bike</li>
-        <li onClick={() => handleNav("/product/car", "cars")}>Car</li> */}
-        <li onClick={() => handleNav("/portfolio", "portfolio")}>Portfolio</li>
+         <li onClick={() => handleNav("/portfolio", "portfolio")}>Portfolio</li>
         <li onClick={() => handleNav("/products", "products")}>Service</li>
         <li onClick={() => handleNav("/orders", "orders")}>Orders</li>
-        <li onClick={() => handleNav("/cart", "cart")}>Cart</li>
         <li onClick={() => handleNav("/producttype", "product")}>Product</li>
+        <li onClick={() => handleNav("/cart", "cart.length")}>🛒{cart.length}</li>
 
         {/* ✅ Only show this on MOBILE */}
         <div className="mobile-only">
