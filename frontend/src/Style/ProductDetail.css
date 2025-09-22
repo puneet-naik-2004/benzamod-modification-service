@@ -1,4 +1,6 @@
-
+body{
+  color: #0c0e1b;
+}
 
 .product-detail-container {
   display: flex;
