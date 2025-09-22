@@ -8,7 +8,6 @@ import Contact from "Components/Contact";
 import Footer from "Components/Footer";
 import Review from "Components/Review";
 import {InquiryList} from "Components/InquiryList";
-// import Service from "Components/Service";
 
 
 
@@ -24,8 +23,6 @@ function HomePage() {
       <Contact />
       <Review/>
       <Footer />
-      {/* <Service/> */}
-      {/* <InquiryList/> */}
     
     
     </>

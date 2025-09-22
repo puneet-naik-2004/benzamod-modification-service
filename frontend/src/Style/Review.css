@@ -10,13 +10,15 @@
 
 .reviews-title {
   font-size: 2rem;
-  color: #f38342;
+  color: #00ff99;
   margin-bottom: 8px;
+   animation: fadeInRight 1s ease 0.3s forwards;
+    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
 }
 
 .reviews-subtitle {
   font-size: 1rem;
-  color: #e9dede;
+  color: #eb6767;
   margin-bottom: 25px;
 }
 

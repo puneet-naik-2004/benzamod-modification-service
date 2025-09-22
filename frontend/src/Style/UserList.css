@@ -4,6 +4,7 @@
 
 .page-title {
   margin-bottom: 15px;
+
 }
 
 /* 🔍 Search Bar */
@@ -12,7 +13,7 @@
   max-width: 400px;
   padding: 10px 14px;
   margin-bottom: 20px;
-  border: 2px solid #ddd;
+  /* border: 2px solid #ddd; */
   border-radius: 8px;
   font-size: 14px;
   outline: none;
@@ -77,4 +78,102 @@
 .no-results {
   margin-top: 15px;
   color: gray;
+}
+/* Black background */
+.user-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  background: #000;
+  min-height: 100vh;
+  color: #fff;
+  border-radius: 12px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Title */
+.page-title {
+  font-size: 35px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #00d4ff;
+  text-align: center;
+}
+
+/* Toggle Button wrapper (align right) */
+.toggle-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start; /* pushes button to right */
+  margin-bottom: 20px;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  background: #00d4ff;
+  color: #000;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.toggle-btn:hover {
+  background: #00aacc;
+  color: #fff;
+}
+
+/* New User Form */
+.new-user-form {
+  background: #111;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.6);
+
+  max-width: 400px; /* limits width */
+  width: 100%; /* responsive */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* center inside */
+}
+
+.new-user-form input,
+.new-user-form select {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 12px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  background: #222;
+  color: #fff;
+}
+
+.new-user-form input:focus,
+.new-user-form select:focus {
+  outline: 2px solid #00d4ff;
+}
+
+.new-user-form .btn {
+  background: #00d4ff;
+  color: #000;
+  padding: 12px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 100%;
+}
+
+.new-user-form .btn:hover {
+  background: #00aacc;
+  color: #fff;
 }

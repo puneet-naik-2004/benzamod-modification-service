@@ -1,28 +1,37 @@
-// const express = require("express");
-// const {  getUser,deleteUser} = require("../controllers/userController");
-// const router = express.Router();
-
-// // router.post("/",createContact);
-// router.get("/",getUser);
-// router.delete("/:id",deleteUser);
-
-
-//  module.exports = router;
-
-
-
 const express = require("express");
-const { getUser, deleteUser, changePassword } = require("../controllers/userController");
-const { protect } = require("../middleware/authMiddleware"); // JWT auth middleware
+const {
+  getUser,
+  getUserById,
+  createUser,
+  updateUser,
+  updateUserRole,
+  deleteUser,
+  changePassword,
+} = require("../controllers/userController");
+const { protect, admin } = require("../middleware/authMiddleware"); // JWT auth middleware
 const router = express.Router();
 
-// Get all users
+// 🔹 Public / Admin protected routes
+// Get all users (admin)
 router.get("/", getUser);
 
-// Delete a user by ID
+// Get single user by ID (admin)
+router.get("/:id", getUserById);
+
+// Create new user (admin)
+router.post("/", createUser);
+
+// Update user (admin)
+router.put("/:id", updateUser);
+
+// Update only user role (admin)
+router.patch("/:id/role", updateUserRole);
+
+// Delete user by ID (admin)
 router.delete("/:id", deleteUser);
 
-// ✅ Change password route (private)
+// 🔹 Authenticated user route
+// Change own password
 router.post("/change-password", protect, changePassword);
 
 module.exports = router;

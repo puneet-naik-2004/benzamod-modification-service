@@ -16,7 +16,9 @@
   font-weight: 700;
   margin-bottom: 2.5rem;
   text-align: center;
-  color: #f58457;
+  color: #00ff99;
+  animation: fadeInRight 1s ease 0.3s forwards;
+    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
 }
 
 /* ===== Search Bar ===== */
@@ -107,4 +109,9 @@
   color: #6b7280;
   font-size: 1rem;
   margin-top: 2rem;
+}
+.nav-btn:hover {
+  background: #eb3d3d;
+  transform: translateY(-5px) scale(1.05);
+  box-shadow: 0 6px 18px rgb(240, 243, 56)
 }

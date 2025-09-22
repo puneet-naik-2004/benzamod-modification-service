@@ -1,7 +1,3 @@
-
-
-
-
 import {
   createService,
   deleteService,
@@ -11,37 +7,45 @@ import {
 import { useState, useEffect, useRef } from "react";
 import "../Style/Service.css";
 import { Helmet } from "react-helmet-async";
+import { getCategories } from "Services/categories";
 
 function Services() {
+  const [title, setTitle] = useState("");
   const [name, setName] = useState("");
+  const [price, setPrice] = useState("");
+  const [type, setType] = useState("");
+  const [vehicleType, setVehicleType] = useState(""); // New field
   const [description, setDescription] = useState("");
   const [photo, setPhoto] = useState("");
 
   const [services, setServices] = useState([]);
+  const [categories, setCategories] = useState([]);
   const [editingId, setEditingId] = useState(null);
   const [searchTerm, setSearchTerm] = useState("");
   const formRef = useRef(null);
 
+  // Fetch services
   useEffect(() => {
     getServices()
-      .then((data) => {
-        if (data.error) {
-          setServices([]);
-        } else {
-          setServices(data || []);
-        }
-      })
+      .then((data) => setServices(data?.error ? [] : data || []))
       .catch((err) => console.error("Error fetching services:", err));
+  }, []);
+
+  // Fetch categories for type dropdown
+  useEffect(() => {
+    getCategories()
+      .then((data) => setCategories(data?.error ? [] : data || []))
+      .catch((err) => console.error("Error fetching categories:", err));
   }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!name?.trim() || !photo?.trim()) {
+    if (!title?.trim() || !photo?.trim() || !price || !type?.trim() || !vehicleType?.trim()) {
       alert("Please fill all required fields!");
       return;
     }
 
-    const newService = { name, description, photo };
+    const newService = { title, name, price, type, vehicleType, description, photo };
 
     if (editingId) {
       updateService(editingId, newService)
@@ -64,79 +68,50 @@ function Services() {
 
   const handleDelete = (id) => {
     deleteService(id)
-      .then(() => {
-        setServices(services.filter((s) => s._id !== id));
-      })
+      .then(() => setServices(services.filter((s) => s._id !== id)))
       .catch((err) => console.error("Error deleting service:", err));
   };
 
   const handleEdit = (service) => {
     setEditingId(service._id);
+    setTitle(service.title);
     setName(service.name);
+    setPrice(service.price);
+    setType(service.type);
+    setVehicleType(service.vehicleType); // populate vehicleType
     setDescription(service.description);
     setPhoto(service.photo);
 
-    // ✅ Smooth scroll to form
     if (formRef.current) {
-      formRef.current.scrollIntoView({
-        behavior: "smooth",
-        block: "start",
-      });
+      formRef.current.scrollIntoView({ behavior: "smooth", block: "start" });
     }
   };
 
   const resetForm = () => {
     setEditingId(null);
+    setTitle("");
     setName("");
+    setPrice("");
+    setType("");
+    setVehicleType("");
     setDescription("");
     setPhoto("");
   };
 
-  // ✅ Filter services based on search
   const filteredServices = services.filter(
     (s) =>
-      s.name?.toLowerCase().includes(searchTerm?.toLowerCase()) ||
+      s.title?.toLowerCase().includes(searchTerm?.toLowerCase()) ||
       s.description?.toLowerCase().includes(searchTerm?.toLowerCase())
   );
 
-  // ✅ SEO Structured Data
-  const structuredData = {
-    "@context": "https://schema.org/",
-    "@type": "Collection",
-    name: "Manage Services |  Admin",
-    description:
-      "Admin panel to manage services. Add, update, or delete services.",
-    url: window.location.href,
-    provider: {
-      "@type": "Organization",
-      name: "",
-    },
-  };
-
   return (
     <div className="services-container">
-      {/* 🔎 SEO Helmet */}
       <Helmet>
-        <title>Manage Services |  Admin</title>
+        <title>Manage Services | Admin</title>
         <meta
           name="description"
-          content="Admin panel to manage services. Add, update, and delete services at ."
+          content="Admin panel to manage services. Add, update, and delete services."
         />
-        <meta name="keywords" content="Admin, Manage Services" />
-
-        <meta property="og:title" content="Manage Services |  Admin" />
-        <meta
-          property="og:description"
-          content="Admin panel for managing services at ."
-        />
-        <meta property="og:type" content="website" />
-        <meta property="og:url" content={window.location.href} />
-
-        <link rel="canonical" href={window.location.href} />
-
-        <script type="application/ld+json">
-          {JSON.stringify(structuredData)}
-        </script>
       </Helmet>
 
       <h2 className="page-title">🛠️ Manage Services</h2>
@@ -144,19 +119,47 @@ function Services() {
       {/* Service Form */}
       <form ref={formRef} onSubmit={handleSubmit} className="service-form">
         <h3>{editingId ? "✏️ Update Service" : "➕ Add New Service"}</h3>
+
         <input
           type="text"
-          placeholder="Service Name"
+          placeholder="Service Title"
+          value={title}
+          onChange={(e) => setTitle(e.target.value)}
+        />
+        <input
+          type="text"
+          placeholder="Service Name (slug)"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
+        <input
+          type="number"
+          placeholder="Price"
+          value={price}
+          onChange={(e) => setPrice(e.target.value)}
+        />
+
+        <select value={type} onChange={(e) => setType(e.target.value)}>
+          <option value="">Select Category</option>
+          {categories.map((c) => (
+            <option key={c._id} value={c.name}>
+              {c.name}
+            </option>
+          ))}
+        </select>
+
+        {/* New Vehicle Type select */}
+        <select value={vehicleType} onChange={(e) => setVehicleType(e.target.value)}>
+          <option value="">Select Vehicle Type</option>
+          <option value="Car">Car</option>
+          <option value="Bike">Bike</option>
+        </select>
 
         <textarea
-          placeholder="Service Description"
+          placeholder="Description"
           value={description}
           onChange={(e) => setDescription(e.target.value)}
         />
-
         <input
           type="text"
           placeholder="Photo URL"
@@ -180,7 +183,7 @@ function Services() {
         </div>
       </form>
 
-      {/* 🔍 Search Bar */}
+      {/* Search */}
       <div className="search-bar">
         <input
           type="text"
@@ -196,15 +199,15 @@ function Services() {
         {filteredServices.length > 0 ? (
           filteredServices.map((s) => (
             <div key={s._id} className="service-card">
-              <img src={s.photo} alt={s.name} className="service-img" />
+              <img src={s.photo} alt={s.title} className="service-img" />
               <div className="service-info">
-                <h4>{s.name}</h4>
+                <h4>{s.title}</h4>
+                <p>Type: {s.type}</p>
+                <p>Vehicle Type: {s.vehicleType}</p> {/* Display Vehicle Type */}
+                <p>Price: ${s.price}</p>
                 <p className="desc">{s.description}</p>
                 <div className="card-buttons">
-                  <button
-                    onClick={() => handleEdit(s)}
-                    className="btn btn-edit"
-                  >
+                  <button onClick={() => handleEdit(s)} className="btn btn-edit">
                     ✏️ Edit
                   </button>
                   <button

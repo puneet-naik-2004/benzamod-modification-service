@@ -2,10 +2,10 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/User"); // adjust path to your User model
 
+// ✅ Protect routes - only authenticated users
 const protect = async (req, res, next) => {
   let token;
 
-  // Check if token exists in headers
   if (
     req.headers.authorization &&
     req.headers.authorization.startsWith("Bearer")
@@ -16,6 +16,7 @@ const protect = async (req, res, next) => {
 
       // Verify token
       const decoded = jwt.verify(token, process.env.JWT_SECRET);
+      console.log(decoded);
 
       // Attach user to request (excluding password)
       req.user = await User.findById(decoded.id).select("-password");
@@ -29,11 +30,18 @@ const protect = async (req, res, next) => {
       console.error(error);
       return res.status(401).json({ message: "Not authorized, token failed" });
     }
-  }
-
-  if (!token) {
+  } else {
     return res.status(401).json({ message: "Not authorized, no token" });
   }
 };
 
-module.exports = { protect };
+// ✅ Admin middleware - only allows admin users
+const admin = (req, res, next) => {
+  if (req.user && req.user.role === "admin") {
+    next();
+  } else {
+    res.status(403).json({ message: "Access denied, admin only" });
+  }
+};
+
+module.exports = { protect, admin };

@@ -11,7 +11,7 @@ import {
 import { useState, useEffect, useRef } from "react";
 import "../Style/Product.css";
 import { Helmet } from "react-helmet-async";
-import { getServices } from "Services/service";
+import { getCategories } from "Services/categories";
 
 function Products() {
   const [title, setTitle] = useState("");
@@ -42,7 +42,7 @@ function Products() {
   }, []);
 
   useEffect(() => {
-    getServices()
+    getCategories()
       .then((data) => {
         if (data.error) {
           setServices([]);

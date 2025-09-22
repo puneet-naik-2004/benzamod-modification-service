@@ -26,14 +26,16 @@
 }
 
 .reviews h2 {
-  font-size: 2.8rem;
-  font-weight: 800;
+  font-size: 2.5rem;
+  font-weight: bold;
   margin-bottom: 50px;
-  color: #e78931; /* gold heading */
+  color: #00ff99; /* gold heading */
   text-transform: uppercase;
   letter-spacing: 3px;
   position: relative;
   z-index: 2;
+  animation: fadeInRight 1s ease 0.3s forwards;
+    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
 }
 
 /* Animated underline */

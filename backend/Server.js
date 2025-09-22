@@ -14,6 +14,7 @@ const cartRoutes= require("./routes/cartRoutes")
 const userRoutes= require("./routes/userRoutes")
 const portfolioRoutes= require("./routes/portfolioRoutes")
 const reviewRoutes= require("./routes/reviewRoutes")
+const categoriesRoutes= require("./routes/categoriesRoutes")
 // const categoryRoutes= require("./routes/categoryRoutes.js")
 
 
@@ -31,6 +32,7 @@ app.use(express.json());
 // Routes
 app.use("/products", productRoutes);
 app.use("/service", serviceRoutes);
+app.use("/categories", categoriesRoutes);
 app.use("/inquiry",inquiryRoutes );
 app.use("/auth", authRoutes);
 app.use("/contact",contactRoutes);

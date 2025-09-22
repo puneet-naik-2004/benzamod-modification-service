@@ -9,9 +9,14 @@
 }
 
 .feature-service h2 {
-  font-size: 2rem;
-  margin-bottom: 1.5rem;
-  color: #ee8352;
+  font-size: 2.5rem;   /* bigger title */
+  margin-bottom: 2rem;
+  color: #00ff99;
+  font-weight: bold;    /* bold */
+  letter-spacing: 2px; /* spacing between letters */
+  text-transform: uppercase; /* all caps */
+  animation: fadeInRight 1s ease 0.3s forwards;
+    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
 }
 
 .feature-swiper {
@@ -19,11 +24,11 @@
 }
 
 .nav-btn {
-  background: #fff;
+  background: #ebdcdc;
   border: none;
   padding: 1rem;
   border-radius: 12px;
-  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px rgba(247, 241, 241, 0.1);
   cursor: pointer;
   width: 100%;
   text-align: center;
@@ -46,9 +51,10 @@ span {
   font-weight: bold;
   display: block;
   margin-top: 0.5rem;
-  color: #f38b46;
+   color: rgb(5, 68, 68);
   font-size: 1.2rem;
 }
+
 
 .swiper-button-next,
 .swiper-button-prev {

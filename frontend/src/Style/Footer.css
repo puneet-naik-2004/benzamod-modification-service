@@ -27,6 +27,7 @@
 .footer-text {
   font-size: 14px;
   line-height: 1.6;
+  color: white;
 }
 
 .footer-subtitle {
@@ -35,6 +36,7 @@
   color: #fff;
   margin-bottom: 12px;
 }
+
 
 .footer-links {
   list-style: none;

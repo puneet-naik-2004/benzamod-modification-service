@@ -45,7 +45,7 @@ const HeroBanner = () => {
             <div className="hero-text">
               <h1>{slide.text}</h1>
               <button className="btn" onClick={() => navigate("/feature-service")}>
-                🔧 Explore Mods
+                🔧 Explore Service
               </button>
             </div>
           </div>

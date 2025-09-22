@@ -14,10 +14,12 @@ body {
 
 .cart-container h2 {
   text-align: center;
-  color: #f76262;
+  color: #00c4ff;
   margin-bottom: 2rem;
   font-size: 2rem;
   animation: fadeInDown 0.8s ease-in-out;
+  animation: fadeInRight 1s ease 0.3s forwards;
+    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
 }
 
 /* === Cart List as Grid === */

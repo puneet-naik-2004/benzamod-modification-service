@@ -20,7 +20,9 @@ body {
   font-size: 35px;
   font-weight: 700;
   margin-bottom: 25px;
-  color: #ec733b;
+  color: #00ff99;
+  animation: fadeInRight 1s ease 0.3s forwards;
+    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
 }
 
 .quick-buttons {
@@ -49,8 +51,9 @@ body {
 .quick-nav .nav-btn:hover {
   transform: translateY(-5px);
   background: #eb3d3d;
-  box-shadow: 0px 6px 14px rgba(0,0,0,0.2);
+ box-shadow: 0 6px 18px rgb(240, 243, 56)
 }
+
 
 
 .quick-nav .nav-icon {

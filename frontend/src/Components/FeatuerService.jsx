@@ -5,7 +5,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "../Style/FeatuerService.css";
-import { getServices } from "Services/service";
+import { getCategories } from "Services/categories";
 
 // ✅ Import Swiper
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -16,18 +16,18 @@ import "swiper/css/pagination";
 
 const FeatureService = () => {
   const navigate = useNavigate();
-  const [services, setServices] = useState([]);
+  const [categories, setCategories] = useState([]);
 
   useEffect(() => {
-    getServices()
+    getCategories()
       .then((data) => {
         if (data.error) {
-          setServices([]);
+          setCategories([]);
         } else {
-          setServices(data || []);
+          setCategories(data || []);
         }
       })
-      .catch((err) => console.error("Error fetching products:", err));
+      .catch((err) => console.error("Error fetching categories:", err));
   }, []);
 
   return (
@@ -54,15 +54,15 @@ const FeatureService = () => {
           },
         }}
       >
-        {services.map((each) => (
+        {categories.map((each) => (
           <SwiperSlide key={each._id}>
             <button
               className="nav-btn"
-              onClick={() => navigate(`/product/${each.name?.toLowerCase()}`)}
+              onClick={() => navigate(`/service/${each.name?.toLowerCase()}`)}
             >
               <img src={each?.photo} alt={each.name} className="btn-icon" />
               <span>{each.name}</span>
-              <div>{each.description}</div>
+              <p>{each.description} </p>
             </button>
           </SwiperSlide>
         ))}

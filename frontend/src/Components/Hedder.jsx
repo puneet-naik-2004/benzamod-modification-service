@@ -53,13 +53,15 @@ const Hedder = () => {
 
       {/* ✅ Nav Menu */}
       <ul className={`nav-menu ${mobileOpen ? "open" : ""}`}>
-        <li onClick={() => handleNav("/product/bike", "bikes")}>Bike</li>
-        <li onClick={() => handleNav("/product/car", "cars")}>Car</li>
+       
+         <li onClick={() => handleNav("/pages", "pages")}>Home</li>
+        {/* <li onClick={() => handleNav("/product/bike", "bikes")}>Bike</li>
+        <li onClick={() => handleNav("/product/car", "cars")}>Car</li> */}
         <li onClick={() => handleNav("/portfolio", "portfolio")}>Portfolio</li>
         <li onClick={() => handleNav("/products", "products")}>Service</li>
         <li onClick={() => handleNav("/orders", "orders")}>Orders</li>
         <li onClick={() => handleNav("/cart", "cart")}>Cart</li>
-        <li onClick={() => handleNav("/profile", "profile")}>Profile</li>
+        <li onClick={() => handleNav("/producttype", "product")}>Product</li>
 
         {/* ✅ Only show this on MOBILE */}
         <div className="mobile-only">
