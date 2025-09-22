@@ -44,6 +44,16 @@ const ProductType = () => {
           />
           <span>Seats</span>
         </button>
+
+        
+        <button className="nav-btn" onClick={() => navigate("/product/suspension")}>
+          <img
+            src="https://th.bing.com/th/id/OIP.qwWQTv6uKgNXK7BW1QP3mwHaEO?w=202&h=150&c=6&r=0&o=7&dpr=1.1&pid=1.7&rm=3"
+            alt="suspension"
+            className="btn-icon"
+          />
+          <span>suspension</span>
+        </button>
       </div>
     </div>
   );

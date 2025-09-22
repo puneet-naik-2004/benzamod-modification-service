@@ -138,7 +138,7 @@ function Products() {
     "@type": "Product",
     name: "Manage Products | BENZAMOD Admin",
     description:
-      "Admin panel to manage wraps, exhausts, lights, and seats products. Add, update, or delete products.",
+      "Admin panel to manage wraps, exhausts, lights, seats, and suspension products. Add, update, or delete products.",
     url: window.location.href,
     brand: {
       "@type": "Organization",
@@ -152,17 +152,17 @@ function Products() {
         <title>Manage Products | BENZAMOD Admin</title>
         <meta
           name="description"
-          content="Admin panel to manage Wraps, Exhausts, Lights, and Seats products at BENZAMOD."
+          content="Admin panel to manage Wraps, Exhausts, Lights,  Seats, and suspension products at BENZAMOD."
         />
         <meta
           name="keywords"
-          content="Admin, Manage Products, BENZAMOD, Wraps, Exhausts, Lights, Seats"
+          content="Admin, Manage Products, BENZAMOD, Wraps, Exhausts, Lights, Seats, suspension"
         />
 
         <meta property="og:title" content="Manage Products | BENZAMOD Admin" />
         <meta
           property="og:description"
-          content="Admin panel for managing Wraps, Exhausts, Lights, and Seats products."
+          content="Admin panel for managing Wraps, Exhausts, Lights, Seats,and suspension products."
         />
         <meta property="og:type" content="website" />
         <meta property="og:url" content={window.location.href} />
@@ -175,7 +175,7 @@ function Products() {
       </Helmet>
 
       <h2 className="page-title">
-        🛒 Manage Products (Wraps & Exhausts & Lights & Seats)
+        🛒 Manage Products (Wraps & Exhausts & Lights & Seats & Suspension)
       </h2>
 
       {/* Product Form */}
