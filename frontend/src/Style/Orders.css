@@ -5,7 +5,7 @@
 .orders-page {
   padding: 40px;
   font-family: "Segoe UI", Arial, sans-serif;
-  background: #0a0b0c;
+  background: #372852;
   min-height: 100vh;
 }
 
@@ -13,11 +13,10 @@
 .orders-page h1 {
   font-size: 28px;
   font-weight: 700;
-  color: #00ff99;
+  color: #191a19;
   text-align: center;
   margin-bottom: 30px;
-  animation: fadeInRight 1s ease 0.3s forwards;
-    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
+ 
 }
 
 /* Empty state */

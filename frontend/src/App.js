@@ -38,6 +38,7 @@ const Service = lazy(() => import("./Pages/ServicePage"));
 const Profile = lazy(() => import("./Pages/ProfilePage"));
 const ProductType = lazy(() => import("./Components/ProductType"));
 const PortfolioDetail = lazy(() => import("./Components/PortfolioDetail"));
+const AdminOrderList = lazy(() => import("./Components/AdminOrderList"));
 
 
 function AppContent() {
@@ -84,7 +85,7 @@ function AppContent() {
           <Route path="/admin/products" element={<Product />} />
           {/* <Route path="/admin/services" element={<Service />} /> */}
           <Route path="/admin/contactList" element={<ContactList />} />
-          <Route path="/admin/orders" element={<Orders />} />
+          <Route path="/admin/adminorderlist" element={<AdminOrderList />} />
           <Route path="/adminlogin" element={<AdminLogin />} />
           <Route path="/admin/dashboard" element={<AdminDashboard />} />
           <Route path="/admin/portfolio" element={<Portfolio />} />

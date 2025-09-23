@@ -5,7 +5,7 @@
 /* 🔹 Scope everything under .quick-nav so it won't affect Product page */
 
 body {
-  background: #08070a !important;
+  background: #342d41 !important;
 }
 
 .quick-nav {
@@ -20,9 +20,8 @@ body {
   font-size: 35px;
   font-weight: 700;
   margin-bottom: 25px;
-  color: #00ff99;
-  animation: fadeInRight 1s ease 0.3s forwards;
-    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
+  color: #f39d3a;
+ 
 }
 
 .quick-buttons {

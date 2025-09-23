@@ -26,10 +26,9 @@ body{
 
 .product-info-card h2 {
   margin-bottom: 1rem;
-  color: #00ff99;
+  color: #ee9e36;
   font-size: 1.8rem;
-  animation: fadeInRight 1s ease 0.3s forwards;
-    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
+  
 }
 
 .product-info-card img {

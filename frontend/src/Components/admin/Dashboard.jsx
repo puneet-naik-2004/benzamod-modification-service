@@ -9,7 +9,7 @@ import Categories from "../Categories";
 import Services from "../Service";
 import { ContactListComponent } from "../ContactList.component";
 import Portfolio from "../Portfolio";
-import { OrdersList } from "../Orders";
+import { AdminOrderList } from "../AdminOrderList";
 import { UserListComponent } from "../UserListComponent";
 import InquiryList from "../InquiryList";
 import Profile from "../Profile";
@@ -59,8 +59,8 @@ export const Dashboard = () => {
         return <ContactListComponent />;
       case "portfolio":
         return <Portfolio />;
-      case "orders":
-        return <OrdersList />;
+      case "adminorderlist":
+        return <AdminOrderList />;
       case "users":
         return <UserListComponent />;
       case "inquiries":
@@ -112,8 +112,8 @@ export const Dashboard = () => {
               📩 Contacts
             </li>
             <li
-              className={activeTab === "orders" ? "active" : ""}
-              onClick={() => setActiveTab("orders")}
+              className={activeTab === "adminorderlist" ? "active" : ""}
+              onClick={() => setActiveTab("adminorderlist")}
             >
               🛒 Orders
             </li>

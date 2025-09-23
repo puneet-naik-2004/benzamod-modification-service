@@ -1,6 +1,6 @@
 .contact-page {
   padding: 40px;
-  background: #0a0808;
+  background: #372852;
 }
 
 .page-title h2 {
@@ -8,9 +8,7 @@
   margin-bottom: 30px;
   font-size: 38px;
   font-weight: bold;
-  color: #00ff99;
-  animation: fadeInRight 1s ease 0.3s forwards;
-    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
+  color: #f77337;
   
 }
 
@@ -105,7 +103,7 @@
 
 .contact-page {
   padding: 40px;
-  background: #0a0808;
+  background: #372852;
 }
 
 h2.page-title {
@@ -113,9 +111,8 @@ h2.page-title {
   margin-bottom: 30px;
   font-size: 38px;
   font-weight: bold;
-  color: #00ff99;
-  animation: fadeInRight 1s ease 0.3s forwards;
-    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
+  color: #ee9e35;
+  
 }
 
 .contact-section {

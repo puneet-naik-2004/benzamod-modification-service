@@ -1,7 +1,7 @@
 
 
 .portfolio-container {
-  background: #000; /* Full black background */
+  background: #372852; /* Full black background */
   color: #222; /* Dark text inside cards */
   min-height: 100vh;
   padding: 2rem;
@@ -14,9 +14,8 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 2rem;
-  color: #00ff99; /* Gold Accent */
-  animation: fadeInRight 1s ease 0.3s forwards;
-    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
+  color: #191a19; /* Gold Accent */
+ 
 }
 
 /* ============================= */

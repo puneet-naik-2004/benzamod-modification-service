@@ -1,3 +1,6 @@
+body{
+  color: black;
+}
 #ProductList {
   padding: 2rem;
   background: #151a1f;
@@ -16,10 +19,9 @@
   font-weight: 700;
   margin-bottom: 2.5rem;
   text-align: center;
-  color: #00ff99;
+  color: #fca440;
   text-decoration: underline ;
-  animation: fadeInRight 1s ease 0.3s forwards;
-    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
+ 
     
 }
 

@@ -2,7 +2,7 @@
 .reviews {
   text-align: center;
   padding: 80px 20px;
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) ); /* dark gradient */
+  background: rgb(51, 47, 47); /* dark gradient */
   border-radius: 20px;
   margin: 50px auto;
   max-width: 1000px;
@@ -29,13 +29,11 @@
   font-size: 2.5rem;
   font-weight: bold;
   margin-bottom: 50px;
-  color: #00ff99; /* gold heading */
+  color: #eea436; /* gold heading */
   text-transform: uppercase;
   letter-spacing: 3px;
   position: relative;
   z-index: 2;
-  animation: fadeInRight 1s ease 0.3s forwards;
-    text-shadow: 0px 0px 15px rgba(0, 255, 153, 0.8)
 }
 
 /* Animated underline */
