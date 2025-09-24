@@ -19,14 +19,6 @@ export const Dashboard = () => {
   const [isSidebarOpen, setIsSidebarOpen] = useState(true);
   const [activeTab, setActiveTab] = useState("products"); // default tab
 
-  // ✅ Check admin auth
-  useEffect(() => {
-    const isAdmin = localStorage.getItem("role") === "admin";
-    if (!isAdmin) {
-      navigate("/login");
-    }
-  }, [navigate]);
-
   // ✅ Auto-open sidebar on desktop resize
   useEffect(() => {
     const handleResize = () => {

@@ -55,8 +55,9 @@ body{
   justify-content: center; /* center cards */
   gap: 1.5rem;
   list-style: none;
-  padding: 0;
+  padding: 5;
   margin: 0;
+  
 }
 
 /* ===== Product Card ===== */
