@@ -11,7 +11,6 @@ import {InquiryList} from "Components/InquiryList";
 
 
 
-
 function HomePage() {
   return (
     <>
@@ -23,8 +22,7 @@ function HomePage() {
       <Contact />
       <Review/>
       <Footer />
-    
-    
+   
     </>
   );
 }

@@ -7,7 +7,7 @@ body {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
   padding: 0;
-  background: #f8f9fa;
+  background: #342d41;
 }
 
 /* ================================
@@ -19,11 +19,22 @@ body {
   align-items: center;
   background: #0d0d0d;
   padding: 20px 24px;
-  color: #fff;
+  color: coral;
   position: sticky;
   top: 0;
   z-index: 1000;
   animation: slideDown 0.6s ease;
+  
+ .nav-menu {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 50px;
+  color: coral;
+  font-size: 20px;
+  font-weight: 500;
+} 
+
 }
 
 /* ✅ Logo Section */
@@ -92,7 +103,7 @@ body {
 }
 
 /* Animated underline */
-.nav-menu li::after {
+/* .nav-menu li::after {
   content: "";
   position: absolute;
   bottom: -5px;
@@ -102,7 +113,7 @@ body {
   background: #ff4747;
   transition: width 0.3s ease;
   border-radius: 2px;
-}
+} */
 
 .nav-menu li:hover {
   color: #8aff47;
@@ -125,7 +136,12 @@ body {
   animation: fadeInLeft 1s ease 0.8s forwards;
 }
 
-.btn {
+
+.navbar .btn,
+.login-btn,
+.admin-btn,
+.logout-btn,
+.profile-btn { 
   display: flex;
   align-items: center;
   gap: 6px;
@@ -153,17 +169,19 @@ body {
 }
 
 .admin-btn {
-  background: #333;
+  background: #5885da;
   color: #fff;
+   border: 1px solid #5885da;
 }
 
+
 .admin-btn:hover {
-  background: #444;
-  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+  background: #5885da;
+  box-shadow: 0 4px 12px rgba(83, 198, 226, 0.2);
 }
 
 .logout-btn {
-  background: #222;
+  background: #ff4747;
   color: #ff4747;
   border: 1px solid #ff4747;
 }
@@ -172,7 +190,10 @@ body {
   background: #ff4747;
   color: white;
   box-shadow: 0 4px 12px rgba(255, 71, 71, 0.5);
-}
+} 
+
+
+
 
 /* ✅ Welcome text */
 .welcome-text {
@@ -185,7 +206,7 @@ body {
 /* ================================
    📱 Responsive Styles
 ================================= */
-@media (max-width: 768px) {
+@media (max-width: 1080px) {
   .hamburger {
     display: block;
     font-size: 28px;
@@ -258,6 +279,12 @@ body {
     opacity: 1;
     visibility: visible;
   }
+    .mobile-only {
+    display: block;
+  }
+  .desktop-only {
+    display: none;
+  }
 }
 
 /* ================================
@@ -290,15 +317,5 @@ body {
 /* By default hide mobile-only */
 .mobile-only {
   display: none;
-}
-
-/* On small screens show mobile-only, hide desktop-only */
-@media (max-width: 768px) {
-  .mobile-only {
-    display: block;
-  }
-  .desktop-only {
-    display: none;
-  }
 }
 

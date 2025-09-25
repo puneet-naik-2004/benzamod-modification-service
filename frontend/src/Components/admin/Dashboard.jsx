@@ -12,7 +12,7 @@ import Portfolio from "../Portfolio";
 import { AdminOrderList } from "../AdminOrderList";
 import { UserListComponent } from "../UserListComponent";
 import InquiryList from "../InquiryList";
-import Profile from "../Profile";
+import Adminprofile from "../Adminprofile";
 
 export const Dashboard = () => {
   const navigate = useNavigate();
@@ -57,8 +57,8 @@ export const Dashboard = () => {
         return <UserListComponent />;
       case "inquiries":
         return <InquiryList />;
-      case "profile":
-        return <Profile />;
+      case "adminprofile":
+        return <Adminprofile />;
       default:
         return <h2>Select an option from the sidebar</h2>;
     }
@@ -128,8 +128,8 @@ export const Dashboard = () => {
               ❓ Inquiries
             </li>
             <li
-              className={activeTab === "profile" ? "active" : ""}
-              onClick={() => setActiveTab("profile")}
+              className={activeTab === "adminprofile" ? "active" : ""}
+              onClick={() => setActiveTab("adminprofile")}
             >
               👤 Profile
             </li>

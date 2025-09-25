@@ -90,7 +90,7 @@ const Hedder = () => {
             <>
               <li className="mobile-user">Hi, {userName} 👋</li>
               <li>
-                <button className="btn logout-btn" onClick={handleLogout}>
+                <button className=" logout-btn" onClick={handleLogout}>
                   Logout
                 </button>
               </li>
@@ -99,21 +99,21 @@ const Hedder = () => {
             <>
               <li>
                 <Link to="/login" onClick={() => setMobileOpen(false)}>
-                  <button className="btn login-btn">
+                  <button className=" login-btn">
                     <LogIn size={16} /> Login
                   </button>
                 </Link>
               </li>
               <li>
                 <Link to="/adminlogin" onClick={() => setMobileOpen(false)}>
-                  <button className="btn admin-btn">
+                  <button className=" admin-btn">
                     <Shield size={16} /> Admin
                   </button>
                 </Link>
               </li>
               <li>
                 <Link to="/profile" onClick={() => setMobileOpen(false)}>
-                  <button className="btn profile-btn">
+                  <button className="profile-btn">
                     <Shield size={16} /> Profile
                   </button>
                 </Link>
@@ -127,11 +127,11 @@ const Hedder = () => {
       <div className="nav-login-cart desktop-only">
         {isLoggedIn ? (
           <>
-            <button className="btn logout-btn" onClick={handleLogout}>
+            <button className=" logout-btn" onClick={handleLogout}>
               Logout
             </button>
             <Link to="/profile">
-              <button className="btn admin-btn">
+              <button className=" admin-btn">
                 <Shield size={16} /> Profile
               </button>
             </Link>
@@ -139,12 +139,12 @@ const Hedder = () => {
         ) : (
           <>
             <Link to="/login">
-              <button className="btn login-btn">
+              <button className=" login-btn">
                 <LogIn size={16} /> Login
               </button>
             </Link>
             <Link to="/adminlogin">
-              <button className="btn admin-btn">
+              <button className=" admin-btn">
                 <Shield size={16} /> Admin
               </button>
             </Link>

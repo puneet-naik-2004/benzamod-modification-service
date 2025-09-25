@@ -1,0 +1,129 @@
+body{
+    color: #342d41;
+}
+
+
+/* Wishlist Container */
+.wishlist-container {
+background-color: #342d41;
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.wishlist-container h2 {
+  text-align: center;
+  font-size: 2rem;
+  color: #ff4d6d; /* Heart red */
+  margin-bottom: 2rem;
+}
+
+/* Wishlist List Grid */
+.wishlist-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Wishlist Card */
+.wishlist-card {
+    width: 300px;
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.wishlist-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Product Image */
+.wishlist-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* Wishlist Info */
+.wishlist-info {
+  padding: 1rem;
+  flex-grow: 1;
+}
+
+.wishlist-info h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.wishlist-info p {
+  font-size: 0.9rem;
+  margin: 0.2rem 0;
+  color: #555;
+}
+
+/* Wishlist Actions */
+.wishlist-actions {
+  display: flex;
+  justify-content: space-between;
+  padding: 1rem;
+  border-top: 1px solid #eee;
+  background-color: #fafafa;
+}
+
+.wishlist-actions a.view-btn,
+.wishlist-actions button.delete-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background 0.2s ease, color 0.2s ease;
+  border: none;
+}
+
+.wishlist-actions a.view-btn {
+  background-color: #007bff;
+  color: #fff;
+}
+
+.wishlist-actions a.view-btn:hover {
+  background-color: #0056b3;
+}
+
+.wishlist-actions button.delete-btn {
+  background-color: #ff4d6d;
+  color: #fff;
+}
+
+.wishlist-actions button.delete-btn:hover {
+  background-color: #e6003d;
+}
+
+/* Empty Wishlist Message */
+.empty-msg {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #888;
+  margin-top: 2rem;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 600px) {
+  .wishlist-actions {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .wishlist-actions a.view-btn,
+  .wishlist-actions button.delete-btn {
+    width: 100%;
+    text-align: center;
+  }
+}

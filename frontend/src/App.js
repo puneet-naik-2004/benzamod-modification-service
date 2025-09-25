@@ -40,6 +40,8 @@ const ProductType = lazy(() => import("./Components/ProductType"));
 const PortfolioDetail = lazy(() => import("./Components/PortfolioDetail"));
 const AdminOrderList = lazy(() => import("./Components/AdminOrderList"));
 const ProtectedRoute = lazy(() => import("./Components/admin/ProtectedRoute"));
+const Wishlist = lazy(() => import("./Components/Wishlist"));
+const Adminprofile = lazy(() => import("./Components/Adminprofile"));
 
 function AppContent() {
   const location = useLocation();
@@ -81,6 +83,8 @@ function AppContent() {
             <Route path="inquiry" element={<InquiryList />} />
             <Route path="services" element={<Service />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="adminprofile" element={<Adminprofile />} />
+
           </Route>
 
           {/* Admin login stays public */}
@@ -100,6 +104,7 @@ function AppContent() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/producttype" element={<ProductType />} />
           <Route path="/portfolio/:id" element={<PortfolioDetail />} />
+          <Route path="/wishlist" element={<Wishlist />} />
         </Routes>
       </Suspense>
       {!hideFooter && <Footer />}{" "}

@@ -1,7 +1,7 @@
 
 
 .portfolio-container {
-  background: #0d0d0e; /* Full black background */
+  background: #372852; /* Full black background */
   color: #222; /* Dark text inside cards */
   min-height: 100vh;
   padding: 2rem;
@@ -76,7 +76,7 @@
 .product-card {
   background: #221d1d; /* White cards on black background */
   border-radius: 14px;
-  padding: 1.5rem;
+  padding:2  1.5rem;
   text-align: center;
   transition: 0.3s;
   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);

@@ -1,5 +1,5 @@
 body{
-  color: #0c0e1b;
+  color: #342d41;
 }
 
 .product-detail-container {
@@ -10,7 +10,7 @@ body{
   padding: 2rem;
   max-width: 1200px;
   margin: auto;
-  background-color: #201b33;
+  background-color: #342d41;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -47,7 +47,7 @@ body{
 .product-info-card .price {
   font-size: 1.3rem;
   font-weight: bold;
-  color: #27ae60;
+  color: #e23333;
   margin-bottom: 0.5rem;
 }
 
@@ -78,6 +78,8 @@ body{
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s;
+  background-color: #2980b9;
+  color: white;
 }
 
 .btn-cart {
@@ -115,7 +117,7 @@ body{
 /* --- Inquiry Form (Centered Fields) --- */
 .inquiry-form {
   flex: 1;
-  background: #161222;
+  background: #2a2a4e;
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);

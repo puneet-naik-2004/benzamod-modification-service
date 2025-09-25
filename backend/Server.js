@@ -15,7 +15,7 @@ const userRoutes= require("./routes/userRoutes")
 const portfolioRoutes= require("./routes/portfolioRoutes")
 const reviewRoutes= require("./routes/reviewRoutes")
 const categoriesRoutes= require("./routes/categoriesRoutes")
-// const categoryRoutes= require("./routes/categoryRoutes.js")
+const wishlistRoutes= require("./routes/wishlistRoutes")
 
 
 
@@ -42,7 +42,7 @@ app.use("/cart",cartRoutes);
 app.use("/user",userRoutes);
 app.use("/portfolio",portfolioRoutes);
 app.use("/reviews",reviewRoutes);
-// app.use("/category",categoryRoutes);
+app.use("/wishlist",wishlistRoutes);
 
 
 
