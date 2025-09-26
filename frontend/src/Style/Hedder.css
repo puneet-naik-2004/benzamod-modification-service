@@ -103,7 +103,7 @@ body {
 }
 
 /* Animated underline */
-/* .nav-menu li::after {
+.nav-menu li::after {
   content: "";
   position: absolute;
   bottom: -5px;
@@ -113,7 +113,7 @@ body {
   background: #ff4747;
   transition: width 0.3s ease;
   border-radius: 2px;
-} */
+} 
 
 .nav-menu li:hover {
   color: #8aff47;
@@ -182,7 +182,7 @@ body {
 
 .logout-btn {
   background: #ff4747;
-  color: #ff4747;
+  color: white;
   border: 1px solid #ff4747;
 }
 
