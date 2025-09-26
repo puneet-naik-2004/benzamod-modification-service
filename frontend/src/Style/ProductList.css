@@ -1,7 +1,7 @@
 
 #ProductList {
   padding: 2rem;
-  background: #342d41;
+  background: #372852;
   min-height: 100vh;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
@@ -9,7 +9,7 @@
 .products-list-page {
   max-width: 1200px;
   margin: 0 auto;
-  background-color: #342d41;
+  background-color: #372852;
 }
 
 .products-title {
