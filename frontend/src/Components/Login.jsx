@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { loginUser } from "Services/login";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import "../Style/LoginPage.css";  
+import "../Style/LoginPage.css";
 import { useAuth } from "Context/AuthContext"; // ✅ use Auth Context
 
 export function Login() {
@@ -19,19 +19,19 @@ export function Login() {
       const result = await loginUser({ email, password });
 
       if (result.token) {
-        const role = result.user?.role
+        const role = result.user?.role;
         // Save token in localStorage
         localStorage.setItem("token", result.token);
         localStorage.setItem("userName", result.user?.name || email);
         localStorage.setItem("role", role);
-        
+
         // Save user data in context
         login(result.user);
 
         alert("✅ Login Successful");
-        if(role==="admin" || role === "super_admin"){
+        if (role === "admin" || role === "super_admin") {
           navigate("/admin/dashboard", { replace: true }); // ✅ go back to previous page
-        }else{
+        } else {
           navigate("/", { replace: true }); // ✅ go back to previous page
         }
       } else {
@@ -71,4 +71,3 @@ export function Login() {
     </div>
   );
 }
-

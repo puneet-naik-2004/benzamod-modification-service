@@ -33,9 +33,10 @@ const Hedder = () => {
 
   const handleLogout = () => {
     localStorage.clear();
+    sessionStorage.removeItem("hasReloaded"); // ✅ reset reload flag
     setIsLoggedIn(false);
     setUserName("");
-    navigate("/login");
+    window.location.reload()
   };
 
 

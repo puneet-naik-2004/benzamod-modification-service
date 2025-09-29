@@ -5,7 +5,7 @@
   padding: 2rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   color: #fff;
-  background: #2a2a4e;
+  background: #372852;
   min-height: 100vh;
 }
 
@@ -22,7 +22,7 @@
 
 /* === Form Container === */
 .service-form {
-  background: #121427;
+  background: #756565;
   padding: 2rem;
   border-radius: 16px;
   box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
@@ -152,7 +152,7 @@
 
 /* === Service Card === */
 .service-card {
-  background: #121427;
+  background: #1f1f20;
   border-radius: 16px;
   overflow: hidden;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
