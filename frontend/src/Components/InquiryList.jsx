@@ -1,6 +1,3 @@
-
-
-
 import React, { useEffect, useState } from "react";
 import { deleteInquiry, getInquiry } from "Services/inquiry";
 import "../Style/InquiryList.css";

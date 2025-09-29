@@ -1,5 +1,3 @@
-
-
 import React, { useEffect, useState } from "react";
 import { getOrders, deleteOrder } from "Services/order";
 import "../Style/Orders.css";

@@ -1,26 +1,3 @@
-// import React from "react";
-// import { useNavigate } from "react-router-dom";
-// import '../Style/QuickNavigation.css'
-
-// const QuickNavigation = () => {
-//   const navigate = useNavigate();
-
-//   return (
-//     <div className="quick-nav">
-//       <h2>Quick Navigation</h2>
-//        <div className='quick-buttons'>
-//       <button className="nav-btn" onClick={() => navigate("/service/car")}>Shop by Car</button>
-//       <button className="nav-btn" onClick={() => navigate("/service/bike")}>Shop by Bike</button>
-//     </div>
-//     </div>
-//   );
-// };
-
-// export default QuickNavigation;
-
-
-
-
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import "../Style/QuickNavigation.css";

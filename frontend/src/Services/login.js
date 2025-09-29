@@ -1,4 +1,3 @@
-
 export const registerUser = async (userData) => {
   try {
     const res = await fetch(`${process.env.REACT_APP_API_URL}/auth/register`, {

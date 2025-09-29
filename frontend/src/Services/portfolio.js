@@ -1,7 +1,4 @@
 // 🔹 Get all registered users
-
-
-
 export const getPortfolio = () => {
   return fetch(`${process.env.REACT_APP_API_URL}/portfolio`)
     .then((res) => res.json());

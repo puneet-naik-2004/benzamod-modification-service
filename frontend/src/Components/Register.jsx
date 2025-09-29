@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import { registerUser } from "Services/login";
 import { useNavigate, Link } from "react-router-dom";

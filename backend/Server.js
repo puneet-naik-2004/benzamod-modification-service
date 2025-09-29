@@ -8,7 +8,6 @@ const serviceRoutes = require("./routes/serviceRoutes");
 const inquiryRoutes = require("./routes/inquiryRoutes");
 const authRoutes = require("./routes/authRoutes");
 const contactRoutes= require("./routes/contactRoutes")
-// const projectRoutes= require("./routes/projectRoutes")
 const orderRoutes= require("./routes/orderRoutes")
 const cartRoutes= require("./routes/cartRoutes")
 const userRoutes= require("./routes/userRoutes")
@@ -36,7 +35,6 @@ app.use("/categories", categoriesRoutes);
 app.use("/inquiry",inquiryRoutes );
 app.use("/auth", authRoutes);
 app.use("/contact",contactRoutes);
-// app.use("/project",projectRoutes);
 app.use("/orders",orderRoutes);
 app.use("/cart",cartRoutes);
 app.use("/user",userRoutes);
